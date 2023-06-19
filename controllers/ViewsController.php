@@ -3,17 +3,16 @@
 namespace app\controllers;
 
 use app\models\Products;
-use app\models\search\ProductsSearch;
 use app\models\Views;
+use app\models\search\ViewsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * ProductsController implements the CRUD actions for Products model.
+ * ViewsController implements the CRUD actions for Views model.
  */
-class ProductsController extends Controller
+class ViewsController extends Controller
 {
     /**
      * @inheritDoc
@@ -34,13 +33,13 @@ class ProductsController extends Controller
     }
 
     /**
-     * Lists all Products models.
+     * Lists all Views models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new ProductsSearch();
+        $searchModel = new ViewsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -50,7 +49,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Displays a single Products model.
+     * Displays a single Views model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -63,7 +62,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Creates a new Products model.
+     * Creates a new Views model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
@@ -71,28 +70,19 @@ class ProductsController extends Controller
     {
         $model = new Products();
 
-        if ($this->request->isPost) {
-            $model->load($this->request->post());
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            $model->file_360 = UploadedFile::getInstance($model, 'file_360');
-            if ($model->upload()) {
+        
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
                 $view = new Views();
                 $view->product_id = $model->id;
                 $view->count = 0;
                 $view->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
-        } else {
-            $model->loadDefaultValues();
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        
     }
 
     /**
-     * Updates an existing Products model.
+     * Updates an existing Views model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -112,7 +102,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Deletes an existing Products model.
+     * Deletes an existing Views model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -126,15 +116,15 @@ class ProductsController extends Controller
     }
 
     /**
-     * Finds the Products model based on its primary key value.
+     * Finds the Views model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Products the loaded model
+     * @return Views the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Products::findOne(['id' => $id])) !== null) {
+        if (($model = Views::findOne(['id' => $id])) !== null) {
             return $model;
         }
 
