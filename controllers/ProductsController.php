@@ -55,10 +55,16 @@ class ProductsController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
+    
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        if($model->increasingView($id)){
+            return $this->render('view', [
+                'model' => $model,]);
+        }
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
@@ -140,4 +146,6 @@ class ProductsController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    
 }

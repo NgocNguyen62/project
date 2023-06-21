@@ -64,8 +64,16 @@ class Products extends \yii\db\ActiveRecord
         $filePath = 'files/' . $this->file_360->baseName. time() . '.' . $this->file_360->extension;
         $this->image_360 = $filePath;
         $this->file_360->saveAs($filePath);
-        
+
         $this->save();
         return true;
+    }
+    public function increasingView($id){
+        if(($view = Views::findOne(['product_id'=>$id])) !== null){
+            $view->count += 1;
+            $view->save(false, ['count']);
+            return true;
+        }
+        return false;
     }
 }
