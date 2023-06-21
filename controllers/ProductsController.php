@@ -3,12 +3,18 @@
 namespace app\controllers;
 
 use app\models\Products;
+use app\models\Qr;
 use app\models\search\ProductsSearch;
 use app\models\Views;
+//use Da\QrCode\QrCode;
+use dosamigos\qrcode\QrCode;
+use yii\filters\VerbFilter;
+use yii\helpers\FileHelper;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -86,6 +92,24 @@ class ProductsController extends Controller
                 $view->product_id = $model->id;
                 $view->count = 0;
                 $view->save();
+
+                $qrCodeFolderPath = 'qrcodes/';
+                FileHelper::createDirectory($qrCodeFolderPath);
+                $productUrl = Url::to(['products/view', 'id' => $model->id], true);
+                $qrPath = $qrCodeFolderPath . $model->id ."-". $model->name . '.png';
+                
+                $qrCode = QRCode::encode($productUrl);
+                //$qrCode = new QrCode($productUrl);
+                print_r(($qrCode));
+                die;
+                $qrCode->writeFile($qrPath);
+                $qr = new Qr();
+                $qr->product_id = $model->id;
+               
+                //$qrCode->saveAs($qrPath);
+                $qr->qr = $qrPath;
+                $qr->save();
+
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -127,6 +151,8 @@ class ProductsController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+        $view = Views::findOne(['product_id'=>$id]);
+        $view->delete();
 
         return $this->redirect(['index']);
     }

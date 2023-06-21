@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
         'name' => 'yiisoft/yii2-app-basic',
-        'pretty_version' => '2.0.48',
-        'version' => '2.0.48.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '6d1f91a5876a0421c579ebd2105bb88b0c76ac37',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        '2amigos/qrcode-library' => array(
+            'pretty_version' => '1.0.3',
+            'version' => '1.0.3.0',
+            'reference' => 'b034402e98c19f914946cc868e0606e657458fc8',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../2amigos/qrcode-library',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'behat/gherkin' => array(
             'pretty_version' => 'v4.9.0',
             'version' => '4.9.0.0',
@@ -767,9 +776,9 @@
             'dev_requirement' => false,
         ),
         'yiisoft/yii2-app-basic' => array(
-            'pretty_version' => '2.0.48',
-            'version' => '2.0.48.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '6d1f91a5876a0421c579ebd2105bb88b0c76ac37',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

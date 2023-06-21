@@ -49,4 +49,13 @@ return array (
       '@yii/symfonymailer' => $vendorDir . '/yiisoft/yii2-symfonymailer/src',
     ),
   ),
+  '2amigos/qrcode-library' => 
+  array (
+    'name' => '2amigos/qrcode-library',
+    'version' => '1.0.3.0',
+    'alias' => 
+    array (
+      '@dosamigos/qrcode' => $vendorDir . '/2amigos/qrcode-library/src',
+    ),
+  ),
 );

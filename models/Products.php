@@ -23,6 +23,8 @@ class Products extends \yii\db\ActiveRecord
     public $imageFile;
     public $file_360;
 
+    public $qrcode;
+
     public static function tableName()
     {
         return 'products';
@@ -76,4 +78,10 @@ class Products extends \yii\db\ActiveRecord
         }
         return false;
     }
+
+    public function getCategory()
+    {
+        return $this->hasOne(Categories::class, ['id' => 'category_id']);
+    }
+
 }

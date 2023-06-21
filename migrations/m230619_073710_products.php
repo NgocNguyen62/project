@@ -17,7 +17,7 @@ class m230619_073710_products extends Migration
             'name' => $this->string(255)->notNull(),
             'category_id' => $this->integer()->notNull(),
             'description' => $this->string(),
-            'status' => $this->string(255)->notNull(),
+            'status' => $this->smallInteger()->notNull(),
             'avatar' => $this->string()->notNull(),
             'image_360' => $this ->string()->notNull(),
         ]);
