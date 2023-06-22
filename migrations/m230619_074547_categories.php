@@ -14,8 +14,18 @@ class m230619_074547_categories extends Migration
     {
         $this->createTable('{{%categories}}', [
             'id' => $this->primaryKey(),
-            'category' =>$this->string()->notNull(), 
-        ]);
+            'name' =>$this->string()->notNull(), 
+            'description' => $this->string(),
+        ], 'ENGINE=InnoDB');
+        $this->addForeignKey(
+            'fk-products-category',
+            '{{%products}}',
+            'category_id',
+            '{{%categories}}',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
     }
 
     /**
@@ -23,6 +33,7 @@ class m230619_074547_categories extends Migration
      */
     public function safeDown()
     {
+        $this->dropForeignKey('fk-products-category', '{{%products}}');
         $this->dropTable('categories');
     }
 

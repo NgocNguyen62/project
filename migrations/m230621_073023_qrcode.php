@@ -16,9 +16,9 @@ class m230621_073023_qrcode extends Migration
             'id' => $this->primaryKey(),
             'product_id'=>$this->integer()->notNull(),
             'qr' => $this->string()->notNull()
-        ]);
+        ], 'ENGINE=InnoDB');
         $this->addForeignKey(
-            'fk-view-products',
+            'fk-qrcode-products',
             '{{%qrcode}}',
             'product_id',
             '{{%products}}',
@@ -33,9 +33,8 @@ class m230621_073023_qrcode extends Migration
      */
     public function safeDown()
     {
-        echo "m230621_073023_qrcode cannot be reverted.\n";
-
-        return false;
+        $this->dropForeignKey('fk-qrcode-products', '{{%qrcode}}');
+        $this->dropTable('qrcode');
     }
 
     /*

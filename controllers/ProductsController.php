@@ -88,10 +88,10 @@ class ProductsController extends Controller
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             $model->file_360 = UploadedFile::getInstance($model, 'file_360');
             if ($model->upload()) {
-                $view = new Views();
-                $view->product_id = $model->id;
-                $view->count = 0;
-                $view->save();
+                // $view = new Views();
+                // $view->product_id = $model->id;
+                // $view->count = 0;
+                // $view->save();
 
                 $qrCodeFolderPath = 'qrcodes/';
                 FileHelper::createDirectory($qrCodeFolderPath);

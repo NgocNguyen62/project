@@ -3,32 +3,32 @@
 use yii\db\Migration;
 
 /**
- * Class m230619_091342_views
+ * Class m230622_061416_rate
  */
-class m230619_091342_views extends Migration
+class m230622_061416_rate extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%views}}', [
+        $this->createTable('{{%rate}}', [
             'user_id' => $this->integer(),
-            'product_id'=>$this->integer()->notNull(),
-            'count' => $this->integer()->defaultValue(0),
+            'product_id'=>$this->integer(),
+            'rate' => $this->smallInteger()->notNull(),
             'time' => $this->dateTime()
         ], 'ENGINE=InnoDB');
-        $this->addPrimaryKey('pk_views', 'views', ['user_id', 'product_id']);
+        $this->addPrimaryKey('pk_rate', 'rate', ['user_id', 'product_id']);
         $this->addForeignKey(
-            'fk-view-products',
-            '{{%views}}',
+            'fk-rate-products',
+            '{{%rate}}',
             'product_id',
             '{{%products}}',
             'id',
             'CASCADE',
             'CASCADE'
         );
-        
+       
     }
 
     /**
@@ -36,7 +36,8 @@ class m230619_091342_views extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('views');
+        $this->dropForeignKey('fk-rate-products', 'rate');
+        $this->dropTable('{{%rate}}');
     }
 
     /*
@@ -48,7 +49,7 @@ class m230619_091342_views extends Migration
 
     public function down()
     {
-        echo "m230619_091342_views cannot be reverted.\n";
+        echo "m230622_061416_rate cannot be reverted.\n";
 
         return false;
     }

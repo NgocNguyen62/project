@@ -20,16 +20,8 @@ class m230619_073710_products extends Migration
             'status' => $this->smallInteger()->notNull(),
             'avatar' => $this->string()->notNull(),
             'image_360' => $this ->string()->notNull(),
-        ]);
-        $this->addForeignKey(
-            'fk-products-category',
-            '{{%products}}',
-            'category_id',
-            '{{%categories}}',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
+        ], 'ENGINE=InnoDB');
+        
     }
 
     /**
@@ -37,7 +29,8 @@ class m230619_073710_products extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('fk-products-category', '{{%products}}');
+        //$this->dropForeignKey('fk-products-category', '{{%categories}}');
+        //$this->dropForeignKey('fk-rate-products', 'rate');
         $this->dropTable('products');
     }
 
