@@ -11,20 +11,22 @@ use Yii;
  * @property string $name
  * @property int $category_id
  * @property string|null $description
- * @property string $status
+ * @property int $status
  * @property string $avatar
  * @property string $image_360
+ *
+ * @property Categories $category
+ * @property Qrcode[] $qrcodes
+ * @property Rate[] $rates
+ * @property User[] $users
+ * @property User[] $users0
+ * @property Views[] $views
  */
 class Products extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
-    public $imageFile;
-    public $file_360;
-
-    public $qrcode;
-
     public static function tableName()
     {
         return 'products';
@@ -37,8 +39,9 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'category_id', 'status', 'avatar', 'image_360'], 'required'],
-            [['category_id'], 'integer'],
-            [['name', 'description', 'status', 'avatar', 'image_360'], 'string', 'max' => 255],
+            [['category_id', 'status'], 'integer'],
+            [['name', 'description', 'avatar', 'image_360'], 'string', 'max' => 255],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::class, 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
 
@@ -58,30 +61,71 @@ class Products extends \yii\db\ActiveRecord
         ];
     }
 
-    public function upload(){
-        $imagePath = 'avatars/' . $this->imageFile->baseName . time() .'.' . $this->imageFile->extension;
-        $this->avatar = $imagePath;
-        $this->imageFile->saveAs($imagePath);
-
-        $filePath = 'files/' . $this->file_360->baseName. time() . '.' . $this->file_360->extension;
-        $this->image_360 = $filePath;
-        $this->file_360->saveAs($filePath);
-
-        $this->save();
-        return true;
+    /**
+     * Gets query for [[Category]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Categories::class, ['id' => 'category_id']);
     }
-    public function increasingView($id){
-        if(($view = Views::findOne(['product_id'=>$id])) !== null){
+
+    /**
+     * Gets query for [[Qrcodes]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getQrcodes()
+    {
+        return $this->hasMany(Qrcode::class, ['product_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Rates]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRates()
+    {
+        return $this->hasMany(Rate::class, ['product_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Users]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(User::class, ['id' => 'user_id'])->viaTable('rate', ['product_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Users0]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers0()
+    {
+        return $this->hasMany(User::class, ['id' => 'user_id'])->viaTable('views', ['product_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Views]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getViews()
+    {
+        return $this->hasMany(Views::class, ['product_id' => 'id']);
+    }
+    public function increasingView($product_id, $user_id){
+        if(($view = Views::findOne(['product_id'=>$product_id, 'user__id'=>$user_id])) !== null){
             $view->count += 1;
             $view->save(false, ['count']);
             return true;
         }
         return false;
     }
-
-    public function getCategory()
-    {
-        return $this->hasOne(Categories::class, ['id' => 'category_id']);
-    }
-
 }

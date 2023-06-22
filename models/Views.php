@@ -7,9 +7,13 @@ use Yii;
 /**
  * This is the model class for table "views".
  *
- * @property int $id
+ * @property int $user_id
  * @property int $product_id
  * @property int|null $count
+ * @property string|null $time
+ *
+ * @property Products $product
+ * @property User $user
  */
 class Views extends \yii\db\ActiveRecord
 {
@@ -27,8 +31,12 @@ class Views extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id'], 'required'],
-            [['product_id', 'count'], 'integer'],
+            [['user_id', 'product_id'], 'required'],
+            [['user_id', 'product_id', 'count'], 'integer'],
+            [['time'], 'safe'],
+            [['user_id', 'product_id'], 'unique', 'targetAttribute' => ['user_id', 'product_id']],
+            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::class, 'targetAttribute' => ['product_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -38,9 +46,30 @@ class Views extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'user_id' => 'User ID',
             'product_id' => 'Product ID',
             'count' => 'Count',
+            'time' => 'Time',
         ];
+    }
+
+    /**
+     * Gets query for [[Product]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProduct()
+    {
+        return $this->hasOne(Products::class, ['id' => 'product_id']);
+    }
+
+    /**
+     * Gets query for [[User]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 }

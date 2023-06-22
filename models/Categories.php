@@ -8,7 +8,10 @@ use Yii;
  * This is the model class for table "categories".
  *
  * @property int $id
- * @property string $category
+ * @property string $name
+ * @property string|null $description
+ *
+ * @property Products[] $products
  */
 class Categories extends \yii\db\ActiveRecord
 {
@@ -26,8 +29,8 @@ class Categories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category'], 'required'],
-            [['category'], 'string', 'max' => 255],
+            [['name'], 'required'],
+            [['name', 'description'], 'string', 'max' => 255],
         ];
     }
 
@@ -38,11 +41,18 @@ class Categories extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category' => 'Category',
+            'name' => 'Name',
+            'description' => 'Description',
         ];
     }
+
+    /**
+     * Gets query for [[Products]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
     public function getProducts()
     {
-        return $this->hasMany(Product::class, ['category_id' => 'id']);
+        return $this->hasMany(Products::class, ['category_id' => 'id']);
     }
 }
