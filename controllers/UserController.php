@@ -2,8 +2,10 @@
 
 namespace app\controllers;
 
+use app\models\form\UserForm;
 use app\models\User;
 use app\models\search\UserSearch;
+use app\models\User_profile;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -68,23 +70,14 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new User();
+        $model = new UserForm();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post())) {
-                //$model->firstName = "hhg";
-                $model->firstName = $this->request->post('firstName');
-                echo "<pre>";
-                print_r($model->firstName);
-                die;
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
+        if ($model->load($this->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-
+    
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model, 
         ]);
     }
 

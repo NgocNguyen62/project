@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\models\base;
 
 use Yii;
 
@@ -16,7 +16,7 @@ use Yii;
  *
  * @property User $user
  */
-class User_profile extends \yii\db\ActiveRecord
+class UserProfile extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
