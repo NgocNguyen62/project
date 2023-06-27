@@ -12,7 +12,6 @@ use Yii;
  * @property string $firstName
  * @property string $lastName
  * @property string|null $phoneNum
- * @property int|null $role
  *
  * @property User $user
  */
@@ -32,7 +31,7 @@ class UserProfile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'role'], 'integer'],
+            [['user_id'], 'integer'],
             [['firstName', 'lastName'], 'required'],
             [['firstName', 'lastName', 'phoneNum'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
@@ -50,7 +49,6 @@ class UserProfile extends \yii\db\ActiveRecord
             'firstName' => 'First Name',
             'lastName' => 'Last Name',
             'phoneNum' => 'Phone Num',
-            'role' => 'Role',
         ];
     }
 

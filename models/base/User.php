@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string $username
  * @property string $password
+ * @property int|null $role
  *
  * @property Products[] $products
  * @property Products[] $products0
@@ -34,7 +35,10 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             [['username', 'password'], 'required'],
-            [['username', 'password'], 'string', 'max' => 255],
+            [['role'], 'integer'],
+            [['username'], 'string', 'max' => 100],
+            [['password'], 'string', 'max' => 255],
+            [['username'], 'unique'],
         ];
     }
 
@@ -47,6 +51,7 @@ class User extends \yii\db\ActiveRecord
             'id' => 'ID',
             'username' => 'Username',
             'password' => 'Password',
+            'role' => 'Role',
         ];
     }
 

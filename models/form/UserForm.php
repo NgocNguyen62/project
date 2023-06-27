@@ -35,7 +35,9 @@ class UserForm extends Model
         if($this->validate()) {
             $user = new User();
             $user->username = $this->username;
-            $user->password = $this->password;
+            $user->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            //$user->password = $this->password;
+            $user->role = 0;
             $rs = $user->save();
             $this->id = $user->id;
             // var_dump($rs);
@@ -45,7 +47,7 @@ class UserForm extends Model
                 $user_profile->firstName = $this->firstName;
                 $user_profile->lastName = $this->lastName;
                 $user_profile->phoneNum = $this->phoneNum;
-                $user_profile->role = 0;
+               
                 $pr  = $user_profile->save();
                 // var_dump($pr);
                 // die;

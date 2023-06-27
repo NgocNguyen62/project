@@ -4,10 +4,10 @@ namespace app\models\search;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\User;
+use app\models\base\User;
 
 /**
- * UserSearch represents the model behind the search form of `app\models\User`.
+ * UserSearch represents the model behind the search form of `app\models\base\User`.
  */
 class UserSearch extends User
 {
@@ -17,7 +17,7 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'role'], 'integer'],
             [['username', 'password'], 'safe'],
         ];
     }
@@ -59,6 +59,7 @@ class UserSearch extends User
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'role' => $this->role,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])
