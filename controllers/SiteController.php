@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\ContactForm;
 use app\models\form\LoginForm;
+use http\Env\Url;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -61,6 +62,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+//        print_r(Yii::$app->session->get('user'));
+//        die();
         return $this->render('index');
     }
 
@@ -77,7 +80,12 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            //return $this->redirect(['user/index']);
+//            $session = Yii::$app->session;
+//            $session->set('user', $model->username);
+            Yii::$app->session->addFlash('user', $model->username);
+            //return $this->render('index');
+            return $this->redirect(['index']);
         }
 
         $model->password = '';

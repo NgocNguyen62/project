@@ -9,7 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -22,6 +22,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'enableSession' => true,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -50,8 +51,54 @@ $config = [
             ],
         ],
         */
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+            'defaultRoles' => ['admin', 'user'],
+//            'itemFile' => '@app/rbac/items.php',
+//            'assignmentFile' => '@app/rbac/assignments.php',
+//            'ruleFile' => '@app/rbac/UserGroupRule.php',
+        ],
+        'session' => [
+            'class' => 'yii\web\Session',
+            'cookieParams' => [
+                'lifetime' => 3600,
+            ],
+        ],
     ],
     'params' => $params,
+    'as globalAccess' => [
+        'class' => 'yii\filters\AccessControl',
+//        'only' => ['about', 'login', 'about'],
+        'rules' => [
+            [
+                'actions' => ['error'],
+                'allow' => true,
+                'roles' => ["?","@"],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['site'],
+                'actions' => ['login', 'index', 'logout'],
+                'roles' => ['?', '@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['site'],
+                'actions' => ['about'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['user'],
+                'actions' => ['create', 'update', 'index', 'view'],
+                'roles' => ['admin'],
+//                'denyCallback' => function ($rule, $action) {
+//                    throw new \Exception('You are not allowed to access this page');
+//                },
+            ],
+        ],
+
+    ],
 ];
 
 if (YII_ENV_DEV) {

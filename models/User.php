@@ -7,6 +7,15 @@ use Yii;
 class User extends \app\models\base\User implements \yii\web\IdentityInterface
 {
 
+    const ROLE_USER = 0;
+    const ROLE_ADMIN = 1;
+
+    public static function getRoles() {
+        return [
+            self::ROLE_ADMIN => 'admin',
+            self::ROLE_USER => 'user'
+        ];
+    }
     public static function findByUsername($username)
     {
         return self::findOne(['username'=>$username]);
@@ -25,17 +34,17 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
 
     public static function findIdentity($id)
     {
-        // TODO: Implement findIdentity() method.
+        return self::findOne($id);
     }
 
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        // TODO: Implement findIdentityByAccessToken() method.
+        throw  new NotSupportedException();
     }
 
     public function getId()
     {
-        // TODO: Implement getId() method.
+        return $this->id;
     }
 
     public function getAuthKey()

@@ -70,6 +70,10 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
+//        echo "<pre>";
+//        print_r(Yii::$app->user);
+//        print_r(Yii::$app->authManager->getRolesByUser(Yii::$app->user->id));
+//        die();
         $model = new UserForm();
 
         if ($model->load($this->request->post()) && $model->save()) {
@@ -92,7 +96,9 @@ class UserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->password = Yii::$app->getSecurity()->generatePasswordHash($model->password);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
