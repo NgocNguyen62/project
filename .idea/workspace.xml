@@ -5,49 +5,470 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c008b031-cb21-4fcf-9956-87314a8359bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/commands/RbacController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/AccessRule.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rbac/UserGroupRule.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rbac/assignments.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rbac/items.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/__autocomplete.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/__autocomplete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/console.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/form/LoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/LoginForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/form/UserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/UserForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/QrCode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_10.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_11.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_12.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_13.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_14.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_15.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_16.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_17.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_18.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_19.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_20.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_21.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_22.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_23.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_24.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_25.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_26.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_27.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_28.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_29.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_30.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_31.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_32.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_33.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_34.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_35.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_36.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_37.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_38.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_39.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_40.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_8.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_9.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/frame_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_101_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_105_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_109_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_113_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_117_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_121_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_125_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_129_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_133_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_137_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_141_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_145_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_149_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_153_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_157_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_161_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_165_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_169_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_173_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_177_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_21_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_25_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_29_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_33_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_37_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_41_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_45_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_49_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_53_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_57_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_61_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_65_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_69_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_73_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_77_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_81_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_85_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_89_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_93_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_0/mask_97_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_101_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_105_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_109_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_113_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_117_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_121_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_125_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_129_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_133_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_137_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_141_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_145_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_149_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_153_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_157_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_161_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_165_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_169_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_173_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_177_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_21_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_25_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_29_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_33_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_37_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_41_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_45_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_49_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_53_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_57_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_61_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_65_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_69_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_73_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_77_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_81_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_85_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_89_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_93_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_1/mask_97_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_101_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_105_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_109_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_113_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_117_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_121_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_125_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_129_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_133_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_137_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_141_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_145_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_149_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_153_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_157_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_161_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_165_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_169_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_173_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_177_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_21_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_25_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_29_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_33_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_37_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_41_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_45_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_49_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_53_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_57_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_61_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_65_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_69_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_73_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_77_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_81_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_85_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_89_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_93_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_2/mask_97_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_101_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_105_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_109_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_113_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_117_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_121_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_125_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_129_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_133_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_137_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_141_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_145_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_149_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_153_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_157_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_161_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_165_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_169_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_173_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_177_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_21_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_25_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_29_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_33_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_37_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_41_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_45_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_49_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_53_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_57_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_61_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_65_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_69_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_73_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_77_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_81_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_85_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_89_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_93_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_3/mask_97_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_101_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_105_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_109_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_113_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_117_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_121_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_125_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_129_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_133_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_137_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_141_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_145_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_149_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_153_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_157_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_161_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_165_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_169_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_173_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_177_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_21_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_25_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_29_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_33_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_37_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_41_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_45_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_49_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_53_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_57_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_61_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_65_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_69_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_73_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_77_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_81_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_85_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_89_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_93_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_4/mask_97_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_101_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_105_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_109_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_113_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_117_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_121_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_125_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_129_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_133_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_137_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_141_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_145_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_149_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_153_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_157_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_161_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_165_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_169_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_173_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_177_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_21_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_25_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_29_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_33_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_37_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_41_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_45_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_49_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_53_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_57_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_61_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_65_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_69_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_73_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_77_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_81_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_85_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_89_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_93_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_5/mask_97_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_101_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_105_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_109_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_113_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_117_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_121_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_125_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_129_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_133_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_137_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_141_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_145_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_149_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_153_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_157_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_161_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_165_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_169_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_173_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_177_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_21_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_25_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_29_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_33_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_37_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_41_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_45_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_49_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_53_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_57_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_61_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_65_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_69_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_73_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_77_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_81_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_85_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_89_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_93_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_6/mask_97_6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_101_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_105_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_109_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_113_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_117_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_121_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_125_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_129_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_133_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_137_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_141_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_145_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_149_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_153_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_157_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_161_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_165_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_169_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_173_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_177_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_21_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_25_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_29_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_33_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_37_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_41_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_45_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_49_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_53_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_57_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_61_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_65_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_69_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_73_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_77_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_81_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_85_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_89_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_93_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/cache/mask_7/mask_97_7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/Bitcoin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/BookMark.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/FormatAbstract.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/Geo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/MailMessage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/MailTo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/MeCard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/Mms.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/Phone.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/Sms.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/Wifi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/Youtube.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/iCal.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/formats/vCard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/BitStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Block.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Code.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Encode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Enum.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/FrameFiller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Image.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Input.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/InputItem.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Mask.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/RawCode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/RgbColor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Rs.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/RsItem.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Specifications.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Split.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/lib/Tools.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/traits/EmailTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/2amigos/qrcode-library/src/traits/UrlTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/codeception/module-yii2/src/Codeception/Lib/Connector/Yii2.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/codeception/module-yii2/src/Codeception/Lib/Connector/Yii2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/codeception/module-yii2/src/Codeception/Lib/Connector/Yii2/FixturesStore.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/codeception/module-yii2/src/Codeception/Lib/Connector/Yii2/FixturesStore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/codeception/module-yii2/src/Codeception/Module/Yii2.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/codeception/module-yii2/src/Codeception/Module/Yii2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/grammar/php5.y" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/grammar/php5.y" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/grammar/php7.y" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/grammar/php7.y" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Node/Name.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Node/Name.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Parser/Php5.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Parser/Php5.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Parser/Php7.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Parser/Php7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/yiisoft/extensions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/yiisoft/extensions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/site/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/error.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/ANN1687328482.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687334857.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687335239.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687335516.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687336348.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687336769.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687336940.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687336961.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687337050.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687337075.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687337097.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687339482.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687340020.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687340074.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687340150.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687340528.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687340735.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687340943.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687341085.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687343867.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687343916.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687344073.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687344112.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Bai11_51687417339.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/files/Softmax1687328090.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/site/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +498,6 @@
       <path value="$PROJECT_DIR$/vendor/bower-asset/punycode" />
       <path value="$PROJECT_DIR$/vendor/bower-asset/bootstrap" />
       <path value="$PROJECT_DIR$/vendor/bower-asset/inputmask" />
-      <path value="$PROJECT_DIR$/vendor/2amigos/qrcode-library" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
@@ -159,6 +579,11 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/hail812/yii2-adminlte-widgets" />
+      <path value="$PROJECT_DIR$/vendor/hail812/yii2-adminlte3" />
+      <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-bootstrap4" />
+      <path value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte" />
+      <path value="$PROJECT_DIR$/vendor/npm-asset/bootstrap" />
     </include_path>
   </component>
   <component name="ProjectId" id="2Rjg1L5dOnod2jNoTycFFDB8if9" />
@@ -215,7 +640,9 @@
       <workItem from="1687846473448" duration="16666000" />
       <workItem from="1687932103618" duration="17482000" />
       <workItem from="1687960640156" duration="9368000" />
-      <workItem from="1688018664421" duration="1610000" />
+      <workItem from="1688018664421" duration="8490000" />
+      <workItem from="1688090711681" duration="1285000" />
+      <workItem from="1688105195172" duration="7529000" />
     </task>
     <servers />
   </component>

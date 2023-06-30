@@ -61,15 +61,20 @@ $config = [
         'session' => [
             'class' => 'yii\web\Session',
             'cookieParams' => [
-                'lifetime' => 3600,
+                'lifetime' => 60*60*60,
             ],
         ],
     ],
     'params' => $params,
+
     'as globalAccess' => [
         'class' => 'yii\filters\AccessControl',
 //        'only' => ['about', 'login', 'about'],
         'rules' => [
+            [
+                'allow' => true,
+                'roles' => ["?","@"],
+            ],
             [
                 'actions' => ['error'],
                 'allow' => true,
@@ -89,6 +94,12 @@ $config = [
             ],
             [
                 'allow' => true,
+                'controllers' => ['yii\gii\controllers'],
+                'actions' => ['about'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
                 'controllers' => ['user'],
                 'actions' => ['create', 'update', 'index', 'view'],
                 'roles' => ['admin'],
@@ -103,19 +114,19 @@ $config = [
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+    ];
+    // configuration adjustments for 'dev' environment
+    // requires version `2.1.21` of yii2-debug module
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
-
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
 }
+
 
 return $config;

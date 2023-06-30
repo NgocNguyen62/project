@@ -1,5 +1,5 @@
 <?php
-use yii\bootstrap5\Html;
+
 /** @var yii\web\View $this */
 
 $this->title = 'My Yii Application';
@@ -16,12 +16,6 @@ $this->title = 'My Yii Application';
 
     <div class="body-content">
 
-        <div class="col-lg-4 mb-3">
-            <h2>User</h2>
-            <p>
-                <?= Html::a('View', ['user/'], ['class' => 'btn btn-success']) ?>
-            </p>
-        </div>
         <div class="row">
             <div class="col-lg-4 mb-3">
                 <h2>Heading</h2>

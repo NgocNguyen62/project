@@ -49,13 +49,31 @@ return array (
       '@yii/symfonymailer' => $vendorDir . '/yiisoft/yii2-symfonymailer/src',
     ),
   ),
-  '2amigos/qrcode-library' => 
+  'yiisoft/yii2-bootstrap4' => 
   array (
-    'name' => '2amigos/qrcode-library',
-    'version' => '1.0.3.0',
+    'name' => 'yiisoft/yii2-bootstrap4',
+    'version' => '2.0.11.0',
     'alias' => 
     array (
-      '@dosamigos/qrcode' => $vendorDir . '/2amigos/qrcode-library/src',
+      '@yii/bootstrap4' => $vendorDir . '/yiisoft/yii2-bootstrap4/src',
+    ),
+  ),
+  'hail812/yii2-adminlte-widgets' => 
+  array (
+    'name' => 'hail812/yii2-adminlte-widgets',
+    'version' => '1.0.5.0',
+    'alias' => 
+    array (
+      '@hail812/adminlte/widgets' => $vendorDir . '/hail812/yii2-adminlte-widgets/src',
+    ),
+  ),
+  'hail812/yii2-adminlte3' => 
+  array (
+    'name' => 'hail812/yii2-adminlte3',
+    'version' => '1.1.8.0',
+    'alias' => 
+    array (
+      '@hail812/adminlte3' => $vendorDir . '/hail812/yii2-adminlte3/src',
     ),
   ),
 );
