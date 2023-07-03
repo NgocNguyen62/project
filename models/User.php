@@ -46,6 +46,10 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
     {
         return $this->id;
     }
+    public function getProfileId(){
+        $profile = $this->userProfiles;
+        return $profile->getId();
+    }
 
     public function getAuthKey()
     {
@@ -55,5 +59,11 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
     public function validateAuthKey($authKey)
     {
         // TODO: Implement validateAuthKey() method.
+    }
+
+    public function updateValue(){
+        $this->updated_at = time();
+        $this->updated_by = Yii::$app->user->identity->username;
+        return true;
     }
 }

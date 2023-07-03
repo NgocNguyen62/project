@@ -1,13 +1,18 @@
 <?php
 
-namespace app\models\base;
+namespace app\models;
 
 use Yii;
 
-class User extends \app\models\base\UserProfile
+class UserProfile extends \app\models\base\UserProfile
 {
-    
-    public function getUserName() {
-        return null;
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function updateValue(){
+        $this->gender = implode(',', $this->gender);
+        $this->save();
     }
 }

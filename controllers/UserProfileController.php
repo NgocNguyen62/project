@@ -2,19 +2,16 @@
 
 namespace app\controllers;
 
-use app\models\form\UserForm;
-use app\models\User;
-use app\models\search\UserSearch;
 use app\models\UserProfile;
+use app\models\search\UserProfileSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use Yii;
 
 /**
- * UserController implements the CRUD actions for User model.
+ * UserProfileController implements the CRUD actions for UserProfile model.
  */
-class UserController extends Controller
+class UserProfileController extends Controller
 {
     /**
      * @inheritDoc
@@ -35,13 +32,13 @@ class UserController extends Controller
     }
 
     /**
-     * Lists all User models.
+     * Lists all UserProfile models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
+        $searchModel = new UserProfileSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -51,7 +48,7 @@ class UserController extends Controller
     }
 
     /**
-     * Displays a single User model.
+     * Displays a single UserProfile model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -64,29 +61,29 @@ class UserController extends Controller
     }
 
     /**
-     * Creates a new User model.
+     * Creates a new UserProfile model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-//        echo "<pre>";
-//        print_r(Yii::$app->user);
-//        print_r(Yii::$app->authManager->getRolesByUser(Yii::$app->user->id));
-//        die();
-        $model = new UserForm();
+        $model = new UserProfile();
 
-        if ($model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        } else {
+            $model->loadDefaultValues();
         }
-    
+
         return $this->render('create', [
-            'model' => $model, 
+            'model' => $model,
         ]);
     }
 
     /**
-     * Updates an existing User model.
+     * Updates an existing UserProfile model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -97,9 +94,7 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post())) {
-            $model->password = Yii::$app->getSecurity()->generatePasswordHash($model->password);
             $model->updateValue();
-            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -109,7 +104,7 @@ class UserController extends Controller
     }
 
     /**
-     * Deletes an existing User model.
+     * Deletes an existing UserProfile model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -123,15 +118,15 @@ class UserController extends Controller
     }
 
     /**
-     * Finds the User model based on its primary key value.
+     * Finds the UserProfile model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return User the loaded model
+     * @return UserProfile the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = User::findOne(['id' => $id])) !== null) {
+        if (($model = UserProfile::findOne(['id' => $id])) !== null) {
             return $model;
         }
 

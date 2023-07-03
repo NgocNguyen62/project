@@ -3,6 +3,7 @@
 namespace app\models\base;
 
 use Yii;
+use app\models\UserProfile;
 
 /**
  * This is the model class for table "user".
@@ -11,11 +12,15 @@ use Yii;
  * @property string $username
  * @property string $password
  * @property int|null $role
+ * @property string|null $created_at
+ * @property string|null $updated_at
+ * @property string|null $created_by
+ * @property string|null $updated_by
  *
  * @property Products[] $products
  * @property Products[] $products0
  * @property Rate[] $rates
- * @property UserProfile[] $userProfiles
+ * @property UserProfile $userProfiles
  * @property Views[] $views
  */
 class User extends \yii\db\ActiveRecord
@@ -36,8 +41,9 @@ class User extends \yii\db\ActiveRecord
         return [
             [['username', 'password'], 'required'],
             [['role'], 'integer'],
+            [['created_at', 'updated_at'], 'safe'],
             [['username'], 'string', 'max' => 100],
-            [['password'], 'string', 'max' => 255],
+            [['password', 'created_by', 'updated_by'], 'string', 'max' => 255],
             [['username'], 'unique'],
         ];
     }
@@ -52,6 +58,10 @@ class User extends \yii\db\ActiveRecord
             'username' => 'Username',
             'password' => 'Password',
             'role' => 'Role',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'created_by' => 'Created By',
+            'updated_by' => 'Updated By',
         ];
     }
 
@@ -92,7 +102,7 @@ class User extends \yii\db\ActiveRecord
      */
     public function getUserProfiles()
     {
-        return $this->hasMany(UserProfile::class, ['user_id' => 'id']);
+        return $this->hasOne(UserProfile::class, ['user_id' => 'id']);
     }
 
     /**

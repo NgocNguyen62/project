@@ -37,6 +37,8 @@ class UserForm extends Model
             $user = new User();
             $user->username = $this->username;
             $user->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            $user->created_at = time();
+            $user->created_by = Yii::$app->user->identity->username;
             //$user->password = $this->password;
             $user->role = $this->role;
             $rs = $user->save();
@@ -47,23 +49,20 @@ class UserForm extends Model
 //                $auth->getRole('user');
 //            }
             $this->id = $user->id;
-            return $rs;
+//            return $rs;
             // var_dump($rs);
-//            if($rs) {
-//                $user_profile = new UserProfile();
-//                $user_profile->user_id = $this->id;
-//                $user_profile->firstName = $this->firstName;
-//                $user_profile->lastName = $this->lastName;
-//                $user_profile->phoneNum = $this->phoneNum;
-//
-//                $pr  = $user_profile->save();
-//                // var_dump($pr);
-//                // die;
-//                if($pr) {
-//                    $this->profile_id = $user_profile->id;
-//                    return $rs;
-//                }
-//            }
+            if($rs) {
+                $user_profile = new UserProfile();
+                $user_profile->user_id = $this->id;
+
+                $pr  = $user_profile->save();
+                // var_dump($pr);
+                // die;
+                if($pr) {
+                    $this->profile_id = $user_profile->id;
+                    return $rs;
+                }
+            }
         }
         return false;
     }

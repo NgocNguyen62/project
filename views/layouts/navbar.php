@@ -186,6 +186,26 @@ use yii\helpers\Html;
                 <i class="fas fa-th-large"></i>
             </a>
         </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <div class="media">
+                    <img src="<?=$assetDir?>/img/default-user-icon.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                    <div class="media-body">
+                    </div>
+                </div>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-header"><?=!Yii::$app->user->isGuest? Yii::$app->user->identity->username:""?></span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i><?= !Yii::$app->user->isGuest? Html::a('Profile', ['user-profile/update/', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></i>
+                        <i><?= !Yii::$app->user->isGuest? Html::a('Sign out', ['site/logout'], ['data-method' => 'post', 'class' => 'dropdown-item']) : Html::a('Login', ['site/login']) ?></i>
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                </div>
+            </a>
+        </li>
+
     </ul>
 </nav>
 <!-- /.navbar -->
