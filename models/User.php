@@ -7,13 +7,20 @@ use Yii;
 class User extends \app\models\base\User implements \yii\web\IdentityInterface
 {
 
-    const ROLE_USER = 0;
-    const ROLE_ADMIN = 1;
-
+    const ROLE_USER = 'user';
+    const ROLE_ADMIN = 'admin';
+    const LOCK = 1;
+    const UNLOCK = 0;
     public static function getRoles() {
         return [
             self::ROLE_ADMIN => 'admin',
             self::ROLE_USER => 'user'
+        ];
+    }
+    public static function isLock(){
+        return[
+            self::LOCK => 'lock',
+            self::UNLOCK => 'unlock'
         ];
     }
     public static function findByUsername($username)

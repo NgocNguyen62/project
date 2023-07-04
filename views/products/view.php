@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\Products $model */
+/** @var app\models\base\Products $model */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
@@ -36,17 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'status',
             'avatar',
             'image_360',
-        //],
-        [
-            'label' => 'Image',
-            'format' => 'raw',
-            'value' => function ($model) {
-               
-                return Html::a(Html::img($model->avatar, ['width' => '500']));
-                
-            },
         ],
-    ],
     ]) ?>
 
 </div>

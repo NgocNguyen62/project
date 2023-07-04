@@ -37,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at',
             'created_by',
             'updated_by',
+            'lock',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, User $model, $key, $index, $column) {

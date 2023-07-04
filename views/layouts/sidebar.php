@@ -55,6 +55,7 @@
 //                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],
                     ['label' => 'User', 'url' => ['user/'], 'visible' => Yii::$app->user->can('admin')],
                     ['label' => 'Products', 'url' => ['products/']],
+                    ['label' => 'Categories', 'url' => ['categories/']],
 
                     ['label' => 'SYSTEM', 'header' => true],
                     ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],

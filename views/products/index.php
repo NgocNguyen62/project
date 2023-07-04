@@ -1,6 +1,6 @@
 <?php
 
-use app\models\Products;
+use app\models\base\Products;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -34,18 +34,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'category_id',
             'description',
             'status',
-            //'avatar',
+//            'avatar',
             //'image_360',
+            [
+                    'label' => 'Avatar',
+                'format' => 'raw',
+                'value' => function($model){
+                    $path = $model->avatar;
+                    $print = Html::a(Html::img($path, ['width' => '250']));
+                    return $print;
+                }
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Products $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],
-           
-                
         ],
     ]); ?>
 
-    
+
 </div>

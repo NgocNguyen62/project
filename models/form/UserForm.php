@@ -18,6 +18,7 @@ class UserForm extends Model
 //    public $phoneNum;
     public $role;
     public $profile_id;
+    public $lock;
 
     public function rules()
     {
@@ -27,7 +28,8 @@ class UserForm extends Model
 //            [['firstName', 'lastName'], 'string', 'max' => 255],
 //            [['phoneNum'], 'string', 'max' => 10],
             [['id', 'profile_id'], 'integer'],
-            [['role'], 'integer']
+            [['role'], 'string'],
+            [['lock'], 'integer']
         ];
     }
 
@@ -41,6 +43,7 @@ class UserForm extends Model
             $user->created_by = Yii::$app->user->identity->username;
             //$user->password = $this->password;
             $user->role = $this->role;
+            $user->lock = $this->lock;
             $rs = $user->save();
             $auth = Yii::$app->authManager;
 //            if ($user->role == 1){

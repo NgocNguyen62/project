@@ -1,6 +1,6 @@
 <?php
 
-use app\models\Categories;
+use app\models\base\Categories;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -30,7 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'category',
+            'name',
+            'description',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Categories $model, $key, $index, $column) {

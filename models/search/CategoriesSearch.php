@@ -4,10 +4,10 @@ namespace app\models\search;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Categories;
+use app\models\base\Categories;
 
 /**
- * CategoriesSearch represents the model behind the search form of `app\models\Categories`.
+ * CategoriesSearch represents the model behind the search form of `app\models\base\Categories`.
  */
 class CategoriesSearch extends Categories
 {
@@ -18,7 +18,7 @@ class CategoriesSearch extends Categories
     {
         return [
             [['id'], 'integer'],
-            [['category'], 'safe'],
+            [['name', 'description'], 'safe'],
         ];
     }
 
@@ -61,7 +61,8 @@ class CategoriesSearch extends Categories
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'category', $this->category]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }

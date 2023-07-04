@@ -4,10 +4,10 @@ namespace app\models\search;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Products;
+use app\models\base\Products;
 
 /**
- * ProductsSearch represents the model behind the search form of `app\models\Products`.
+ * ProductsSearch represents the model behind the search form of `app\models\base\Products`.
  */
 class ProductsSearch extends Products
 {
@@ -17,8 +17,8 @@ class ProductsSearch extends Products
     public function rules()
     {
         return [
-            [['id', 'category_id'], 'integer'],
-            [['name', 'description', 'status', 'avatar', 'image_360'], 'safe'],
+            [['id', 'category_id', 'status'], 'integer'],
+            [['name', 'description', 'avatar', 'image_360'], 'safe'],
         ];
     }
 
@@ -60,11 +60,11 @@ class ProductsSearch extends Products
         $query->andFilterWhere([
             'id' => $this->id,
             'category_id' => $this->category_id,
+            'status' => $this->status,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'avatar', $this->avatar])
             ->andFilterWhere(['like', 'image_360', $this->image_360]);
 

@@ -2,19 +2,14 @@
 
 namespace app\controllers;
 
-use app\models\Products;
-use app\models\Qr;
+use app\models\base\Products;
+use app\models\form\ProductForm;
 use app\models\search\ProductsSearch;
-use app\models\Views;
-//use Da\QrCode\QrCode;
-use dosamigos\qrcode\QrCode;
-use yii\filters\VerbFilter;
 use yii\helpers\FileHelper;
-use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-use Yii;
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -61,17 +56,10 @@ class ProductsController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    
     public function actionView($id)
     {
-        $user_id = Yii::$app->user->id;
-        $model = $this->findModel($id);
-        if($model->increasingView($id, $user_id)){
-            return $this->render('view', [
-                'model' => $model,]);
-        }
         return $this->render('view', [
-            'model' => $model,
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -82,40 +70,20 @@ class ProductsController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Products();
-
+//        FileHelper::createDirectory('avatar/');
+//        FileHelper::createDirectory('image_360/');
+        $model = new ProductForm();
         if ($this->request->isPost) {
-            $model->load($this->request->post());
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            $model->file_360 = UploadedFile::getInstance($model, 'file_360');
-            if ($model->upload()) {
-                // $view = new Views();
-                // $view->product_id = $model->id;
-                // $view->count = 0;
-                // $view->save();
-
-                $qrCodeFolderPath = 'qrcodes/';
-                FileHelper::createDirectory($qrCodeFolderPath);
-                $productUrl = Url::to(['products/view', 'id' => $model->id], true);
-                $qrPath = $qrCodeFolderPath . $model->id ."-". $model->name . '.png';
-                
-                $qrCode = QRCode::encode($productUrl);
-                //$qrCode = new QrCode($productUrl);
-                print_r(($qrCode));
-                die;
-                $qrCode->writeFile($qrPath);
-                $qr = new Qr();
-                $qr->product_id = $model->id;
-               
-                //$qrCode->saveAs($qrPath);
-                $qr->qr = $qrPath;
-                $qr->save();
-
-                return $this->redirect(['view', 'id' => $model->id]);
+                $model->load($this->request->post());
+                $model->avatar = UploadedFile::getInstance($model, 'avatar');
+                $model->image_360 = UploadedFile::getInstance($model, 'image_360');
+//                echo ("<pre>");
+//                print_r($model);
+//                die();
+                if($model->save()){
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
-        } else {
-            $model->loadDefaultValues();
-        }
 
         return $this->render('create', [
             'model' => $model,
@@ -132,8 +100,14 @@ class ProductsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        $form = new ProductForm();
+        if ($this->request->isPost) {
+            $model->load($this->request->post());
+            $form->avatar = UploadedFile::getInstance($model, 'avatar');
+            $form->image_360 = UploadedFile::getInstance($model, 'image_360');
+//            var_dump($form->avatar);
+//            die();
+            $form->updateValue($model);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -152,8 +126,6 @@ class ProductsController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        $view = Views::findOne(['product_id'=>$id]);
-        $view->delete();
 
         return $this->redirect(['index']);
     }
@@ -173,6 +145,4 @@ class ProductsController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-    
 }

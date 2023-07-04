@@ -4,18 +4,18 @@ namespace app\models\base;
 
 use Yii;
 use app\models\UserProfile;
-
 /**
  * This is the model class for table "user".
  *
  * @property int $id
  * @property string $username
  * @property string $password
- * @property int|null $role
- * @property string|null $created_at
- * @property string|null $updated_at
+ * @property string|null $role
+ * @property int|null $created_at
+ * @property int|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
+ * @property int|null $lock
  *
  * @property Products[] $products
  * @property Products[] $products0
@@ -40,10 +40,9 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             [['username', 'password'], 'required'],
-            [['role'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at', 'lock'], 'integer'],
             [['username'], 'string', 'max' => 100],
-            [['password', 'created_by', 'updated_by'], 'string', 'max' => 255],
+            [['password', 'role', 'created_by', 'updated_by'], 'string', 'max' => 255],
             [['username'], 'unique'],
         ];
     }
@@ -62,6 +61,7 @@ class User extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
             'created_by' => 'Created By',
             'updated_by' => 'Updated By',
+            'lock' => 'Lock',
         ];
     }
 

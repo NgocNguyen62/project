@@ -5,20 +5,112 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c008b031-cb21-4fcf-9956-87314a8359bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/models/form/ProductForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Products.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UserProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User_profile.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/models/base/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/base/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/base/UserProfile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/form/LoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/LoginForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/form/UserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/UserForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/search/CategoriesSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/search/CategoriesSearch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/search/ProductsSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/search/ProductsSearch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/search/UserSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/search/UserSearch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a058398a829.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05839bdfb1.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a0589d3efc4.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a058eb2ed34.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a058eb7631c.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a059a4dc0de.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a059fb1aab4.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a059fb57e43.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a185df78.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a1876e23.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a5fe9f23.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a6019239.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a6321ca2.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a635535b.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a710815d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a712b4c1.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b7b5ba29.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b7b895ff.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b7bb82f9.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b90a4cc7.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b90c33bb.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05ba8307cf.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05ba85b24d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb207043.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb3088a9.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb55b793.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb58f3ff.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb9a6672.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb9d62c3.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cc66585f.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cc692223.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05d99a3720.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05d99c43ec.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da1adb11.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da1deb74.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da36df93.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da395ef4.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da5b5b03.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da5c90bc.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da70dbda.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da72627c.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05dab0341e.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05dab3e9ae.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05db4dcaea.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05db511975.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17b9e435ad.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17b9e71991.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17ba384d61.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17ba39f016.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17ba9c597a.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/index.data" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/debug/index.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/logs/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categories/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categories/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categories/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categories/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categories/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categories/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/products/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/products/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/products/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/products/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/products/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/_form.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/user/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/user/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/user/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/4213791.fig.0021687328090.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/LSTM1687328482.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687334857.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687335239.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687335516.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687336348.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687336769.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687336940.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687336961.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687337050.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687337075.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687337097.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687339482.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340020.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340074.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340150.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340528.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340735.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340943.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687341085.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687343867.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687343916.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687344073.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687344112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687417339.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +131,11 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="e5a0119f-668e-4520-a4fa-84691cc10aaa" name="localhost" />
+    </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
     <include_path>
@@ -162,15 +259,23 @@
       <recent name="C:\wamp64\www\project" />
     </key>
   </component>
-  <component name="RunManager" selected="Codeception.UserGroupRule.php">
+  <component name="RunManager" selected="PHP Remote Debug.localhost">
     <configuration name="UserGroupRule.php" type="CodeceptionConfigurationType" factoryName="Codeception" temporary="true">
-      <PhpTestRunnerSettings file="$PROJECT_DIR$/rbac/UserGroupRule.php" scope="File" />
+      <PhpTestRunnerSettings file="$PROJECT_DIR$/rbac/UserGroupRule.php" method="" scope="File" />
       <method v="2" />
     </configuration>
     <configuration name="codeception.yml" type="CodeceptionConfigurationType" factoryName="Codeception">
       <PhpTestRunnerSettings scope="ConfigurationFile" />
       <method v="2" />
     </configuration>
+    <configuration name="localhost" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" filter_connections="FILTER" server_name="localhost" session_id="abcd">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Codeception.codeception.yml" />
+      <item itemvalue="Codeception.UserGroupRule.php" />
+      <item itemvalue="PHP Remote Debug.localhost" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Codeception.UserGroupRule.php" />
@@ -195,6 +300,9 @@
       <workItem from="1688105195172" duration="15643000" />
       <workItem from="1688121446260" duration="1755000" />
       <workItem from="1688224795922" duration="6609000" />
+      <workItem from="1688304351240" duration="6509000" />
+      <workItem from="1688364507307" duration="17398000" />
+      <workItem from="1688388615538" duration="4235000" />
     </task>
     <servers />
   </component>
