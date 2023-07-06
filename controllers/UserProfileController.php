@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\base\User;
 use app\models\UserProfile;
 use app\models\search\UserProfileSearch;
 use yii\web\Controller;
@@ -116,6 +117,7 @@ class UserProfileController extends Controller
 
         return $this->redirect(['index']);
     }
+
 
     /**
      * Finds the UserProfile model based on its primary key value.

@@ -75,8 +75,10 @@ class UserController extends Controller
 //        print_r(Yii::$app->authManager->getRolesByUser(Yii::$app->user->id));
 //        die();
         $model = new UserForm();
-
-        if ($model->load($this->request->post()) && $model->save()) {
+        $user = new User();
+        $user->created_at = time();
+        $user->created_by = Yii::$app->user->identity->username;
+        if ($model->load($this->request->post()) && $model->save($user)) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
     
@@ -94,16 +96,35 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $user = $this->findModel($id);
+        $model = new UserForm();
+        $model->setAttributes($user->attributes);
 
         if ($this->request->isPost && $model->load($this->request->post())) {
             $model->password = Yii::$app->getSecurity()->generatePasswordHash($model->password);
-            $model->updateValue();
-            $model->save();
+            $user->updateValue();
+            $model->save($user);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionChangePass($id) {
+        $user = $this->findModel($id);
+        $model = new UserForm();
+        $model->setAttributes($user->attributes);
+        $model->password = "";
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->password = Yii::$app->getSecurity()->generatePasswordHash($model->password);
+            $user->updateValue();
+            $model->save($user);
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('change-pass', [
             'model' => $model,
         ]);
     }

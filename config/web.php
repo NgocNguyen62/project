@@ -64,6 +64,12 @@ $config = [
                 'lifetime' => 60*60*60,
             ],
         ],
+
+        'qr' => [
+            'class' => '\Da\QrCode\Component\QrCodeComponent',
+            'label' => '2amigos consulting group llc',
+            'size' => 500,
+        ],
     ],
     'params' => $params,
 

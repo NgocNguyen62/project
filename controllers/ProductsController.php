@@ -2,10 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\base\Products;
+use app\models\Products;
 use app\models\form\ProductForm;
 use app\models\search\ProductsSearch;
+use app\models\User;
 use yii\helpers\FileHelper;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -78,9 +80,9 @@ class ProductsController extends Controller
                 $model->avatar = UploadedFile::getInstance($model, 'avatar');
                 $model->image_360 = UploadedFile::getInstance($model, 'image_360');
 //                echo ("<pre>");
-//                print_r($model);
+//                print_r($model->avatar);
 //                die();
-                if($model->save()){
+                if($model->save(new Products())){
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
             }
@@ -99,18 +101,17 @@ class ProductsController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-        $form = new ProductForm();
-        if ($this->request->isPost) {
-            $model->load($this->request->post());
-            $form->avatar = UploadedFile::getInstance($model, 'avatar');
-            $form->image_360 = UploadedFile::getInstance($model, 'image_360');
-//            var_dump($form->avatar);
-//            die();
-            $form->updateValue($model);
-            return $this->redirect(['view', 'id' => $model->id]);
+        $product = $this->findModel($id);
+        $model = new ProductForm();
+        $model->setAttributes($product->attributes);
+        $model->id = $product->id;
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->avatar = UploadedFile::getInstance($model, 'avatar');
+            $model->image_360 = UploadedFile::getInstance($model, 'image_360');
+            if ($model->save($product)) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -128,6 +129,11 @@ class ProductsController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionView360($model)
+    {
+        return $this->render('view360', ['model' => $model]);
     }
 
     /**

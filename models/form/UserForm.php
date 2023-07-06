@@ -34,23 +34,18 @@ class UserForm extends Model
     }
 
 
-    public function save() {
+    public function save($user) {
         if($this->validate()) {
-            $user = new User();
+//            $user = new User();
             $user->username = $this->username;
             $user->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
-            $user->created_at = time();
-            $user->created_by = Yii::$app->user->identity->username;
+//            $user->created_at = time();
+//            $user->created_by = Yii::$app->user->identity->username;
             //$user->password = $this->password;
             $user->role = $this->role;
             $user->lock = $this->lock;
             $rs = $user->save();
             $auth = Yii::$app->authManager;
-//            if ($user->role == 1){
-//                $auth->getRole('admin');
-//            } else{
-//                $auth->getRole('user');
-//            }
             $this->id = $user->id;
 //            return $rs;
             // var_dump($rs);

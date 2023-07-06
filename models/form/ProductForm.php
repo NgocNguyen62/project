@@ -1,6 +1,7 @@
 <?php
 namespace app\models\form;
 
+use app\models\base\Qrcode;
 use yii\base\Model;
 use app\models\Products;
 use yii\web\UploadedFile;
@@ -23,14 +24,15 @@ class ProductForm extends Model {
             [['name', 'category_id', 'status'], 'required'],
             [['name', 'description'], 'string', 'max' => 255],
             [['category_id', 'status'], 'integer'],
-            [['avatar'], 'image', 'skipOnEmpty' => false, 'extensions' => ['png', 'jpg', 'PNG', 'JPG']],
-            [['image_360'], 'image', 'skipOnEmpty' => false],
+            [['avatar'], 'file', 'skipOnEmpty' => false, 'extensions' => ['png', 'jpg', 'PNG', 'JPG']],
+            [['image_360'], 'file', 'skipOnEmpty' => false],
         ];
     }
 
-    public function save() {
+    public function save($model) {
         if ($this->validate()){
-            $model = new Products();
+
+//            $model = new Products();
             $model->name = $this->name;
             $model->category_id = $this->category_id;
             $model->description = $this->description;
@@ -44,9 +46,16 @@ class ProductForm extends Model {
             $model->image_360 = $path_file360;
             $this->image_360->saveAs($path_file360);
 
-            $model->save();
+            $rs = $model->save();
             $this->id = $model->id;
-            return true;
+//            return true;
+            if($rs){
+                $qr = new Qrcode();
+                $qr->product_id = $model->id;
+                $qr->qr = $model->createQr();
+                $qr->save();
+                return true;
+            }
         } else {
             var_dump($this->errors);
             die();

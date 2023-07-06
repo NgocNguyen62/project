@@ -29,22 +29,40 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'name',
-            'category_id',
-            'description',
-            'status',
-//            'avatar',
-            //'image_360',
+//            'id',
             [
-                    'label' => 'Avatar',
+                'label' => 'Avatar',
                 'format' => 'raw',
                 'value' => function($model){
                     $path = $model->avatar;
-                    $print = Html::a(Html::img($path, ['width' => '250']));
-                    return $print;
+                    return Html::a(Html::img($path, ['width' => '100', 'height' => '80']));
                 }
             ],
+            'name',
+//            'category_id',
+            [
+                'attribute' => 'category_id',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'category_id',
+                    \app\models\Products::getCate(),
+                    ['class' => 'form-control', 'prompt' => 'All']
+                ),
+                'value' => function ($model) {
+                    return $model->category->name;
+                },
+            ],
+            'description',
+//            'status',
+            [
+                'attribute' => 'status',
+                'value' => function ($model) {
+                    return \app\models\Products::getStatus()[$model->status];
+                },
+            ],
+//            'avatar',
+            //'image_360',
+
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Products $model, $key, $index, $column) {

@@ -5,112 +5,94 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c008b031-cb21-4fcf-9956-87314a8359bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/models/form/ProductForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/products/view360.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/change-pass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/UserProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/base/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/base/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/form/LoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/LoginForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/form/ProductForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/ProductForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/form/UserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/UserForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/search/CategoriesSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/search/CategoriesSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/search/ProductsSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/search/ProductsSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/search/UserSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/search/UserSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a058398a829.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05839bdfb1.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a0589d3efc4.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a058eb2ed34.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a058eb7631c.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a059a4dc0de.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a059fb1aab4.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a059fb57e43.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a185df78.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a1876e23.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a5fe9f23.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a6019239.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a6321ca2.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a635535b.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a710815d.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05a712b4c1.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b7b5ba29.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b7b895ff.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b7bb82f9.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b90a4cc7.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05b90c33bb.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05ba8307cf.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05ba85b24d.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb207043.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb3088a9.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb55b793.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb58f3ff.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb9a6672.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cb9d62c3.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cc66585f.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05cc692223.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05d99a3720.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05d99c43ec.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da1adb11.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da1deb74.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da36df93.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da395ef4.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da5b5b03.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da5c90bc.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da70dbda.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05da72627c.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05dab0341e.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05dab3e9ae.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05db4dcaea.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a05db511975.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17b9e435ad.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17b9e71991.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17ba384d61.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17ba39f016.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64a17ba9c597a.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a8c03b6e4.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a8d63529b.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a8d642258.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a9278ac6a.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a9279c2ee.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a929e4520.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a929f3dfa.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a9351a31b.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2a9352b043.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2aa09900ce.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2aa09a4348.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2c891da978.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2ca9460196.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2caaa43d21.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2caaa8d8a8.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2caca2f776.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2caca80665.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cb1f0dd43.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cb1f41b55.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cbbd57f06.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cbe0ed415.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cbeb10e97.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cbf4954dc.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cc2cc775e.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2ccd8b4203.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cd66c208f.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2ce28d4c51.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2ce4b0a8af.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf27dd28d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf5c56e2d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf6e5c9cd.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf80a2d0d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf96f385d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf9718d03.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf973624f.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf9f16aae.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cf9f59afe.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cfbcbbe7d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cfbcdbdeb.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cfbd194f3.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cfd8b55fe.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cfd8e96ee.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cfdbf025f.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2cfdc11428.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1900b985.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1903ac0f.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1a4eb98b.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1a518df0.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1a5570af.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1b7a62ad.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1b7c947f.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1c91e05c.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1c956398.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1d277565.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a2d1d298f74.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a3b6c34f6c1.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a3b6c37c9d9.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a3b99744a43.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64a3b99758fd7.data" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/runtime/debug/index.data" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/debug/index.data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runtime/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/logs/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/categories/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/categories/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/_search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/categories/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/categories/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/categories/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/categories/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/yiisoft/extensions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/yiisoft/extensions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/sidebar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/products/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/products/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/products/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/products/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/update.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/products/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/_search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/user/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/4213791.fig.0021687328090.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/LSTM1687328482.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687334857.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687335239.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687335516.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687336348.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687336769.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687336940.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687336961.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687337050.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687337075.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687337097.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687339482.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340020.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340074.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340150.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340528.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340735.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687340943.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687341085.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687343867.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687343916.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687344073.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687344112.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatars/Untitled1687417339.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +106,9 @@
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -231,6 +215,10 @@
       <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-bootstrap4" />
       <path value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte" />
       <path value="$PROJECT_DIR$/vendor/npm-asset/bootstrap" />
+      <path value="$PROJECT_DIR$/vendor/2amigos/qrcode-library" />
+      <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
+      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/vendor/endroid/qrcode" />
     </include_path>
   </component>
   <component name="ProjectId" id="2Rjg1L5dOnod2jNoTycFFDB8if9" />
@@ -255,6 +243,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\project\views\user" />
       <recent name="C:\wamp64\www\project\rbac" />
       <recent name="C:\wamp64\www\project" />
     </key>
@@ -302,7 +291,11 @@
       <workItem from="1688224795922" duration="6609000" />
       <workItem from="1688304351240" duration="6509000" />
       <workItem from="1688364507307" duration="17398000" />
-      <workItem from="1688388615538" duration="4235000" />
+      <workItem from="1688388615538" duration="21079000" />
+      <workItem from="1688522136771" duration="3821000" />
+      <workItem from="1688536715975" duration="16670000" />
+      <workItem from="1688566373129" duration="3175000" />
+      <workItem from="1688623410053" duration="1311000" />
     </task>
     <servers />
   </component>

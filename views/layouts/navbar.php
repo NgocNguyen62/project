@@ -200,6 +200,7 @@ use yii\helpers\Html;
                     <a href="#" class="dropdown-item">
                         <i><?= !Yii::$app->user->isGuest? Html::a('Profile', ['user-profile/update/', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></i>
                         <i><?= !Yii::$app->user->isGuest? Html::a('Sign out', ['site/logout'], ['data-method' => 'post', 'class' => 'dropdown-item']) : Html::a('Login', ['site/login']) ?></i>
+                        <i><?= !Yii::$app->user->isGuest? Html::a('Change Password', ['user/change-pass/', 'id' => Yii::$app->user->identity->getId()], ['class' => 'dropdown-item']) : "" ?></i>
                         <span class="float-right text-muted text-sm">3 mins</span>
                     </a>
                 </div>

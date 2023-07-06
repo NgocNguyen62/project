@@ -32,7 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
 //            'password',
-            'role',
+//            'role',
+            [
+                'attribute' => 'role',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'role',
+                    \app\models\User::getRoles(),
+                    ['class' => 'form-control', 'prompt' => 'All']
+                ),
+            ],
             'created_at',
             'updated_at',
             'created_by',

@@ -2,8 +2,16 @@
 
 namespace app\models;
 
+//use dosamigos\qrcode\QrCode;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Logo\Logo;
+
+use Endroid\QrCode\Writer\PngWriter;
 use Yii;
 use app\models\Categories;
+use yii\helpers\Url;
 
 class Products extends \app\models\base\Products
 {
@@ -33,5 +41,16 @@ class Products extends \app\models\base\Products
             return true;
         }
         return false;
+    }
+
+    public function createQr(){
+        $writer = new PngWriter();
+        $url = Url::to(['products/view', 'id' => $this->id], true);
+        $qr = QrCode::create($url);
+
+        $result = $writer->write($qr);
+        $path = 'qrcodes/'. $this->name.time().'.png';
+        $result ->saveToFile($path);
+        return $path;
     }
 }
