@@ -5,7 +5,9 @@ use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\base\Products $model */
+/** @var app\models\Products $model */
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -17,8 +19,8 @@ use yii\widgets\DetailView;
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <style>
         #panorama {
-            width: 600px;
-            height: 400px;
+            width: 400px;
+            height: 200px;
         }
     </style>
 </head>

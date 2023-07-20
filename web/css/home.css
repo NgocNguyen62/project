@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 50px;
+    height: 70px;
+}
+.title{
+    flex: 1;
+}
+.menu {
+    flex: 3;
+    display: flex;
+}
+.menu > li {
+    padding: 12px 12px;
+    position: relative;
+}
+.menu > li a{
+
+}
+.others {
+    flex: 1;
+    display: flex;
+}
+.others > li{
+    padding: 12px 12px;
+}
+.others > li:first-child{
+    position: relative;
+}
+.others > li:first-child input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #333333;
+}
+.others > li:first-child i{
+    position: absolute;
+}
+.others > li a {
+    display: block;
+    font-size: 12px;
+    text-decoration: none solid #333333;
+}
+.others > li:hover .sub-user {
+    display: block;
+}
+.img-size-32 {
+    width: 30px;
+    height: 30px;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.sub-user{
+    position: absolute;
+    width: 150px;
+    border: 1px solid #cccccc;
+    padding: 10px 0 10px 20px;
+    display: none;
+    border-radius: 0.25rem;
+}
+.sub-user ul {
+   padding-left: 20px;
+}
+.sub-user a {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.sub-user ul a i {
+    text-decoration: none;
+    /*padding-top: 5px;*/
+    line-height: 20px;
+    font-style: italic;
+
+}
+.sub-user .dropdown-header{
+    display: block;
+    font-size: .875rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+.wrapper {
+    padding: 2rem;
+    /*padding-top: 3rem;*/
+}
+
+.products ul {
+    display: inline-block;
+}
+
+.products ul .main-product {
+    /*margin-bottom: 2rem;*/
+    /*margin-right: 1rem;*/
+    display: block;
+    float: left;
+    width: 24%;
+
+    padding: 30px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+.products ul .img-product img {
+    width: 75%;
+    height: 100px;
+    justify-content: center;
+    margin: 10px;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.3);
+    max-width: 25vw;
+}
+.content-product .content-product-details {
+    display: grid;
+    justify-content: center;
+    padding-top: 1rem;
+}
+.main-product .content-product .content-product-details span {
+    font-weight: 700;
+    margin-right: 1rem;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+
+
+

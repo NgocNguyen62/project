@@ -1,67 +1,88 @@
 <?php
+
+use dosamigos\chartjs\ChartJs;
 use yii\bootstrap5\Html;
-use yii\grid\GridView;
+use yii\grid\GridView;use yii\helpers\ArrayHelper;
 
 /** @var yii\web\View $this */
+/** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'My Yii Application';
+$this->title = 'Dashboard';
 ?>
-<div class="site-page">
-
-    <div class="jumbotron text-center bg-transparent mt-5 mb-5">
-        <h1 class="display-4">Begin</h1>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4 mb-3">
-                <h2>Upload File</h2>
-
-                <p>
-                    <?= Html::a('Upload', ['files/create'], ['class' => 'btn btn-success']) ?>
-                </p>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <h2>Country</h2>
-                <p>
-                    <?= Html::a('View', ['country/'], ['class' => 'btn btn-success']) ?>
-                </p>
-            </div>
-            <?= Html::a('View', ['files/'])?>
-            <div>
-            <?= GridView::widget([
-                'dataProvider' => $dataProvider,
-                'columns' => [
-                    [
-                        'label' => 'Image',
-                        'format' => 'raw',
-                        'value' => function ($model) {
-                            $paths = $model->path;
-                            
-                            $paths = explode(',', $paths);
-                            $print = '';
-                            foreach($paths as $path){
-                                echo '<div class="row-md-4">';
-                                $print .= Html::a(Html::img($path, ['width' => '100']));
-                                echo '</div>';
-                            }
-                            return $print;
-                            // return Html::img($model->path, ['width' => '100']);
-                        },
-                    ],
-                    [
-                        'label' => 'basename',
-                        'value' => function($model){
-                            return $model->fileName;
-                        },
-                    ],
-                    
+<div>
+<?php
+    echo $this->render('chart');
+?>
+</div>
+<h3>Total views:  <?= \app\models\View::find()->sum('count') ?> </h3>
+<div>
+<h3>Top 10 views:</h3>
+<!--    --><?php //$top = \app\models\View::getTop() ?>
+<!--    --><?php //foreach ($top as $item):  ?>
+<!--    <div>-->
+<!--        <p>--><?php //= $item->name ?><!-- : --><?php //= \app\models\View::findOne(['product_id'=> $item->id])->count ?><!-- views </p>-->
+<!--    </div>-->
+<!--     --><?php //endforeach; ?>
+</div>
+<?php
+////$dataProvider = \app\models\View::getTop();
+//echo GridView::widget([
+//            'dataProvider' => $dataProvider,
+//        'columns' => [
+//               [
+//                       'label' => 'Name',
+//                   'value' => function($model){
+//                        return $model->name;
+//                   }
+//               ],
+//            [
+//                    'label' => 'Views',
+//                'value' => function($model){
+//                    $item = \app\models\View::findOne(['product_id'=>$model->id]);
+//                    if($item !== null){
+//                        return $item->count;
+//                    }
+//                    return 'null';
+//                }
+//            ],
+//        ]
+//    ])
+//?>
+<div>
+<?= ChartJs::widget([
+    'type' => 'bar',
+    'options' => [
+        'height' => 100,
+        'width' => 100,
+        'indexAxis'=> 'y',
+        'elements' => [
+                'bar'=>[
+                        'borderWidth' => 2,
+                ]
+        ]
+    ],
+    'data' => [
+        'labels' => ArrayHelper::getColumn(\app\models\View::getTop(), 'name'),
+        'datasets' => [
+            [
+                'label' => "Views",
+                'backgroundColor' => "rgba(255,99,132,0.2)",
+                'borderColor' => "rgba(255,99,132,1)",
+                'pointBackgroundColor' => "rgba(255,99,132,1)",
+                'pointBorderColor' => "#fff",
+                'pointHoverBackgroundColor' => "#fff",
+                'pointHoverBorderColor' => "rgba(255,99,132,1)",
+                'data' => \app\models\View::getViewTop()
+            ]
+        ],
+        'responsive' => true,
+        'plugin'=>[
+                'legend' => [
+                        'position' => 'right',
                 ],
-                ]); ?>
-            </div>
-            
-        </div>
 
-    </div>
+        ]
+    ]
+]);
+?>
 </div>

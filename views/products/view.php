@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //                },
 //            ],
             [
-                    'label' => '360',
+                'label' => '360',
                 'format' => 'raw',
                 'value' => $this->render('view360', [
                     'model' => $model,

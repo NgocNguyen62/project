@@ -14,13 +14,15 @@ use Yii;
  * @property int $status
  * @property string $avatar
  * @property string $image_360
+ * @property int|null $created_at
+ * @property string|null $created_by
+ * @property int|null $updated_at
+ * @property string|null $updated_by
  *
  * @property Categories $category
  * @property Qrcode[] $qrcodes
  * @property Rate[] $rates
- * @property User[] $users
- * @property User[] $users0
- * @property Views[] $views
+ * @property View[] $views
  */
 class Products extends \yii\db\ActiveRecord
 {
@@ -39,8 +41,8 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'category_id', 'status', 'avatar', 'image_360'], 'required'],
-            [['category_id', 'status'], 'integer'],
-            [['name', 'description', 'avatar', 'image_360'], 'string', 'max' => 255],
+            [['category_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'description', 'avatar', 'image_360', 'created_by', 'updated_by'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::class, 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
@@ -58,6 +60,10 @@ class Products extends \yii\db\ActiveRecord
             'status' => 'Status',
             'avatar' => 'Avatar',
             'image_360' => 'Image 360',
+            'created_at' => 'Created At',
+            'created_by' => 'Created By',
+            'updated_at' => 'Updated At',
+            'updated_by' => 'Updated By',
         ];
     }
 
@@ -92,32 +98,12 @@ class Products extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Users]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUsers()
-    {
-        return $this->hasMany(User::class, ['id' => 'user_id'])->viaTable('rate', ['product_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Users0]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUsers0()
-    {
-        return $this->hasMany(User::class, ['id' => 'user_id'])->viaTable('views', ['product_id' => 'id']);
-    }
-
-    /**
      * Gets query for [[Views]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getViews()
     {
-        return $this->hasMany(Views::class, ['product_id' => 'id']);
+        return $this->hasMany(View::class, ['product_id' => 'id']);
     }
 }

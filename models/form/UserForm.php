@@ -33,7 +33,6 @@ class UserForm extends Model
         ];
     }
 
-
     public function save($user) {
         if($this->validate()) {
 //            $user = new User();
@@ -50,16 +49,19 @@ class UserForm extends Model
 //            return $rs;
             // var_dump($rs);
             if($rs) {
-                $user_profile = new UserProfile();
-                $user_profile->user_id = $this->id;
+                if((UserProfile::findOne(['user_id'=>$this->id])) == null){
+                    $user_profile = new UserProfile();
+                    $user_profile->user_id = $this->id;
 
-                $pr  = $user_profile->save();
-                // var_dump($pr);
-                // die;
-                if($pr) {
-                    $this->profile_id = $user_profile->id;
-                    return $rs;
+                    $pr  = $user_profile->save();
+                    // var_dump($pr);
+                    // die;
+                    if($pr) {
+                        $this->profile_id = $user_profile->id;
+                        return $rs;
+                    }
                 }
+
             }
         }
         return false;

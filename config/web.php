@@ -75,12 +75,8 @@ $config = [
 
     'as globalAccess' => [
         'class' => 'yii\filters\AccessControl',
-//        'only' => ['about', 'login', 'about'],
         'rules' => [
-            [
-                'allow' => true,
-                'roles' => ["?","@"],
-            ],
+
             [
                 'actions' => ['error'],
                 'allow' => true,
@@ -89,7 +85,7 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['login', 'index', 'logout'],
+                'actions' => ['login', 'index', 'logout', 'home'],
                 'roles' => ['?', '@'],
             ],
             [
@@ -98,12 +94,14 @@ $config = [
                 'actions' => ['about'],
                 'roles' => ['@'],
             ],
+
             [
                 'allow' => true,
-                'controllers' => ['yii\gii\controllers'],
-                'actions' => ['about'],
-                'roles' => ['@'],
+                'controllers' => ['site'],
+                'actions' => ['page'],
+                'roles' => ['admin'],
             ],
+//
             [
                 'allow' => true,
                 'controllers' => ['user'],
@@ -112,6 +110,28 @@ $config = [
 //                'denyCallback' => function ($rule, $action) {
 //                    throw new \Exception('You are not allowed to access this page');
 //                },
+            ],
+
+            [
+                'allow' => true,
+                'controllers' => ['products'],
+                'actions' => ['view'],
+                'roles' => ['?', '@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['products'],
+                'actions' => ['rate'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['default'],
+                'roles' => ['?', '@'],
+            ],
+            [
+                'allow' => true,
+                'roles' => ['admin'],
             ],
         ],
 

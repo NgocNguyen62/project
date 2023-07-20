@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="qrcode-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
 
     <p>
         <?= Html::a('Create Qrcode', ['create'], ['class' => 'btn btn-success']) ?>
@@ -29,8 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'product_id',
+//            'id',
+
+            [
+                'label' => 'Product',
+                'value' => function($model){
+                    return (\app\models\Products::findOne(['id' => $model->product_id]))->name;
+                }
+            ],
 //            'qr',
             [
                 'label' => 'Qr Code',

@@ -40,8 +40,11 @@ $this->registerJsFile($publishedRes[1].'/control_sidebar.js', ['depends' => '\ha
     <?= $this->render('navbar', ['assetDir' => $assetDir]) ?>
     <!-- /.navbar -->
 
+<!--    --><?php //if (!in_array(Yii::$app->controller->action->id, ['products/index'])): ?>
+<!--    --><?php //if(Yii::$app->user->can('admin')): ?>
     <!-- Main Sidebar Container -->
     <?= $this->render('sidebar', ['assetDir' => $assetDir]) ?>
+<!--    --><?php //endif; ?>
 
     <!-- Content Wrapper. Contains page content -->
     <?= $this->render('content', ['content' => $content, 'assetDir' => $assetDir]) ?>

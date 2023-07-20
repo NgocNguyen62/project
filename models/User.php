@@ -30,9 +30,7 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
 
     public function validatePassword($password)
     {
-        $hash = Yii::$app->getSecurity()->generatePasswordHash($password);
-        return Yii::$app->getSecurity()->validatePassword($password, $hash);
-        //return $this->password === $password;
+        return Yii::$app->getSecurity()->validatePassword($password, $this->password);
     }
 
     public function getRole(){

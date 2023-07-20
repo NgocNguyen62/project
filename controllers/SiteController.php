@@ -4,10 +4,15 @@ namespace app\controllers;
 
 use app\models\ContactForm;
 use app\models\form\LoginForm;
+use app\models\Products;
+use app\models\search\ProductsSearch;
+use app\models\View;
 use http\Env\Url;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -64,7 +69,12 @@ class SiteController extends Controller
     {
 //        print_r(Yii::$app->session->get('user'));
 //        die();
-        return $this->render('index');
+//        $this->layout = false;
+
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+        
+        return $this->render('index', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
     }
 
     /**
@@ -75,17 +85,17 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->actionHome();
         }
 
         $model = new LoginForm();
+
+        $model->load(Yii::$app->request->post());
+//        var_dump($model->);
+//        die();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            //return $this->redirect(['user/index']);
-//            $session = Yii::$app->session;
-//            $session->set('user', $model->username);
             Yii::$app->session->addFlash('user', $model->username);
-            //return $this->render('index');
-            return $this->redirect(['index']);
+            return $this->actionHome();
         }
 
         $model->password = '';
@@ -97,13 +107,13 @@ class SiteController extends Controller
     /**
      * Logout action.
      *
-     * @return Response
+     * @return Response|string
      */
     public function actionLogout()
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->actionHome();
     }
 
     /**
@@ -132,5 +142,30 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public  function  actionChart() {
+        return $this->render('chart');
+    }
+
+    public function actionPage() {
+        $top = View::find()->orderBy(['count' => SORT_DESC])->limit(10)->all();
+        $productIds = ArrayHelper::getColumn($top, 'product_id');
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => Products::find()
+                ->where(['id' => $productIds]),
+        ]);
+
+        return $this->render('page', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionHome(){
+        $searchModel = new ProductsSearch();
+//        $dataProvider = $searchModel->search($this->request->queryParams);
+        $query = Products::find()->andFilterWhere(['status' => 1]);
+        $dataProvider = new ActiveDataProvider(['query'=>$query]);
+        return $this->renderAjax('home', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+
     }
 }

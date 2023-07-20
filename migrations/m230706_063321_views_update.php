@@ -12,7 +12,22 @@ class m230706_063321_views_update extends Migration
      */
     public function safeUp()
     {
-
+//        $this->dropTable('views');
+        $this->createTable('view', [
+            'id' => $this->primaryKey(),
+            'product_id'=>$this->integer()->notNull(),
+            'count' => $this->integer()->defaultValue(0),
+            'time' => $this->integer()
+        ], 'ENGINE=InnoDB');
+        $this->addForeignKey(
+            'fk-view-products',
+            '{{%view}}',
+            'product_id',
+            '{{%products}}',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
     }
 
     /**
@@ -20,9 +35,7 @@ class m230706_063321_views_update extends Migration
      */
     public function safeDown()
     {
-        echo "m230706_063321_views_update cannot be reverted.\n";
-
-        return false;
+        return true;
     }
 
     /*

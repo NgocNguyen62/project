@@ -11,17 +11,16 @@ use yii\grid\GridView;
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Products';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="products-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <p>
         <?= Html::a('Create Products', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -31,11 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //            'id',
             [
+                'attribute' => 'avatar',
+                'filter' => false,
                 'label' => 'Avatar',
                 'format' => 'raw',
                 'value' => function($model){
                     $path = $model->avatar;
-                    return Html::a(Html::img($path, ['width' => '100', 'height' => '80']));
+                    return Html::a(Html::img($path, ['width' => '80', 'height' => '80']));
                 }
             ],
             'name',
@@ -52,16 +53,36 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->category->name;
                 },
             ],
-            'description',
+//            'description',
 //            'status',
             [
                 'attribute' => 'status',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'status',
+                    \app\models\Products::getStatus(),
+                    ['class' => 'form-control', 'prompt' => 'All']
+                ),
                 'value' => function ($model) {
                     return \app\models\Products::getStatus()[$model->status];
                 },
             ],
 //            'avatar',
             //'image_360',
+            [
+                'label' => 'QR code',
+                'attribute' => 'image_360',
+                'filter' => false,
+                'format' => 'raw',
+                'value' => function ($model) {
+                    $qr = \app\models\base\Qrcode::findOne(['product_id'=>$model->id]);
+                    if($qr !== null){
+                        $path = $qr->qr;
+                        return Html::a(Html::img($path, ['width' => '80']));
+                    }
+                    return 'null';
+                    }
+            ],
 
             [
                 'class' => ActionColumn::className(),

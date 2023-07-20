@@ -118,7 +118,6 @@ class UserController extends Controller
         $model->setAttributes($user->attributes);
         $model->password = "";
         if ($this->request->isPost && $model->load($this->request->post())) {
-            $model->password = Yii::$app->getSecurity()->generatePasswordHash($model->password);
             $user->updateValue();
             $model->save($user);
             return $this->redirect(['view', 'id' => $model->id]);
