@@ -289,10 +289,25 @@ ol {
 	color: #252525;
 	margin-right: 5px;
 }
+.header__top__left a {
+	color: #252525;
+	display: block;
+	font-weight: 400;
+	font-size: 20px;
+
+}
 
 .header__top__right {
 	text-align: right;
 	padding: 10px 0 13px;
+}
+
+.header__top__right__manager a{
+	/*text-decoration: none;*/
+	display: block;
+	color: #252525;
+	position: relative;
+	padding-left: 20px;
 }
 
 .header__top__right__social {
@@ -400,6 +415,7 @@ ol {
 
 .header__top__right__auth li {
 	text-decoration: none;
+	list-style: none;
 }
 
 .header__top__right__manager{
@@ -1109,7 +1125,11 @@ ol {
 	display: flex;
 	align-items: center;
 	padding: 45px 0 40px;
+	height: 300px;
 }
+/*.breadcrumb-section .set-bg{*/
+/*	height: 300px;*/
+/*}*/
 
 .breadcrumb__text h2 {
 	font-size: 46px;

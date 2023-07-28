@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Categories;
 use app\models\ContactForm;
 use app\models\form\LoginForm;
 use app\models\Products;
@@ -52,6 +53,7 @@ class SiteController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
+                'layout'=>false,
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -74,7 +76,8 @@ class SiteController extends Controller
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
         
-        return $this->render('index', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+//        return $this->render('page', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+        return $this->actionPage();
     }
 
     /**
@@ -91,11 +94,9 @@ class SiteController extends Controller
         $model = new LoginForm();
 
         $model->load(Yii::$app->request->post());
-//        var_dump($model->);
-//        die();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             Yii::$app->session->addFlash('user', $model->username);
-            return $this->actionHome();
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
         $model->password = '';
@@ -113,7 +114,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->actionHome();
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     /**
@@ -146,11 +147,16 @@ class SiteController extends Controller
     public  function  actionChart() {
         return $this->render('chart');
     }
+    public  function  actionTopView() {
+        return $this->render('top-view');
+    }
+    public  function  actionTopRate() {
+        return $this->render('top-rate');
+    }
 
     public function actionPage() {
         $top = View::find()->orderBy(['count' => SORT_DESC])->limit(10)->all();
         $productIds = ArrayHelper::getColumn($top, 'product_id');
-
         $dataProvider = new ActiveDataProvider([
             'query' => Products::find()
                 ->where(['id' => $productIds]),
@@ -162,10 +168,25 @@ class SiteController extends Controller
     }
     public function actionHome(){
         $searchModel = new ProductsSearch();
-//        $dataProvider = $searchModel->search($this->request->queryParams);
-        $query = Products::find()->andFilterWhere(['status' => 1]);
-        $dataProvider = new ActiveDataProvider(['query'=>$query]);
-        return $this->renderAjax('home', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+        $dataProvider = $searchModel->search($this->request->queryParams);
+//        $query = Products::find()->andFilterWhere(['status' => 1]);
+//        $dataProvider = new ActiveDataProvider(['query'=>$query]);
+        return $this->renderAjax('home2', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
 
     }
+    public function actionCategories(){
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+        return $this->renderAjax('categories', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+    }
+    public function actionCategoryDetails($id){
+        $searchModel = new ProductsSearch();
+        $dataProvider = new ActiveDataProvider([
+            'query' => Products::find()
+                ->where(['category_id' => $id ]),
+        ]);
+        $products = Products::find()->where(['category_id'=>$id]);
+        return $this->renderAjax('category-details', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+    }
+
 }

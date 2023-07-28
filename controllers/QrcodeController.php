@@ -111,7 +111,9 @@ class QrcodeController extends Controller
      */
     public function actionDelete($id)
     {
-        unlink($this->findModel($id)->qr);
+        if(file_exists($this->findModel($id)->qr)){
+            unlink($this->findModel($id)->qr);
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

@@ -3,11 +3,13 @@
 namespace app\controllers;
 
 use app\models\base\User;
+use app\models\form\ProfileForm;
 use app\models\UserProfile;
 use app\models\search\UserProfileSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * UserProfileController implements the CRUD actions for UserProfile model.
@@ -68,14 +70,15 @@ class UserProfileController extends Controller
      */
     public function actionCreate()
     {
+        $form = new ProfileForm();
         $model = new UserProfile();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            $form->load($this->request->post());
+            $model->avatar = UploadedFile::getInstance($model, 'avatar');
+            if($model->save($model)){
                 return $this->redirect(['view', 'id' => $model->id]);
             }
-        } else {
-            $model->loadDefaultValues();
         }
 
         return $this->render('create', [
@@ -92,13 +95,23 @@ class UserProfileController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $profile = $this->findModel($id);
+        $avatar = $profile->avatar;
+        $model = new ProfileForm();
+        $model->setAttributes($profile->attributes);
+        $model->id = $profile->id;
+//        $model->load($this->request->post());
 
         if ($this->request->isPost && $model->load($this->request->post())) {
-            $model->updateValue();
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+            $model->avatar = UploadedFile::getInstance($model, 'avatar');
 
+            if ($model->save($profile)) {
+                if(file_exists($avatar)){
+                    unlink($avatar);
+                }
+                return $this->redirect(['view', 'id' => $id]);
+            }
+        }
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -116,6 +129,12 @@ class UserProfileController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+    public function actionProfile($id){
+        $model = $this->findModel($id);
+//        var_dump($model);
+//        die();
+        return $this->renderAjax('profile',['model'=>$model]);
     }
 
 

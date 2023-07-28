@@ -2,11 +2,13 @@
 
 namespace app\controllers;
 
-use app\models\Categories;
+use app\models\base\Categories;
+use app\models\form\CategoryForm;
 use app\models\search\CategoriesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CategoriesController implements the CRUD actions for Categories model.
@@ -67,14 +69,15 @@ class CategoriesController extends Controller
      */
     public function actionCreate()
     {
+        $form = new CategoryForm();
         $model = new Categories();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            $form->load($this->request->post());
+            $model->avatar = UploadedFile::getInstance($model, 'avatar');
+            if($model->save($model)){
                 return $this->redirect(['view', 'id' => $model->id]);
             }
-        } else {
-            $model->loadDefaultValues();
         }
 
         return $this->render('create', [
@@ -91,12 +94,22 @@ class CategoriesController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $cate = $this->findModel($id);
+        $avatar = $cate->avatar;
+        $model = new CategoryForm();
+        $model->setAttributes($cate->attributes);
+        $model->id = $cate->id;
+        $model->load($this->request->post());
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->avatar = UploadedFile::getInstance($model, 'avatar');
+            if ($model->save($cate)) {
+                if(file_exists($avatar)){
+                    unlink($avatar);
+                }
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);

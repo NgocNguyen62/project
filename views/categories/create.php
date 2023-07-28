@@ -5,13 +5,13 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\base\Categories $model */
 
-$this->title = 'Create Categories';
+$this->title = 'Tạo mới';
 $this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="categories-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <?= $this->render('_form', [
         'model' => $model,

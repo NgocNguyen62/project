@@ -76,7 +76,6 @@ $config = [
     'as globalAccess' => [
         'class' => 'yii\filters\AccessControl',
         'rules' => [
-
             [
                 'actions' => ['error'],
                 'allow' => true,
@@ -85,21 +84,21 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['login', 'index', 'logout', 'home'],
+                'actions' => ['login', 'logout', 'home','categories','category-details'],
                 'roles' => ['?', '@'],
             ],
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['about'],
+                'actions' => ['about', 'index'],
                 'roles' => ['@'],
             ],
 
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['page'],
-                'roles' => ['admin'],
+                'actions' => ['page','site'],
+                'roles' => ['@'],
             ],
 //
             [
@@ -111,23 +110,43 @@ $config = [
 //                    throw new \Exception('You are not allowed to access this page');
 //                },
             ],
-
             [
                 'allow' => true,
-                'controllers' => ['products'],
-                'actions' => ['view'],
-                'roles' => ['?', '@'],
-            ],
-            [
-                'allow' => true,
-                'controllers' => ['products'],
-                'actions' => ['rate'],
+                'controllers' => ['user'],
+                'actions' => ['change-pass', 'profile'],
                 'roles' => ['@'],
             ],
             [
                 'allow' => true,
-                'controllers' => ['default'],
+                'controllers' => ['user-profile'],
+                'actions' => ['view', 'update'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['products'],
+                'actions' => ['view', 'details', 'view360'],
                 'roles' => ['?', '@'],
+            ],
+//            [
+//                'allow'=>true,
+//                'actions'=>['view'],
+//            ],
+            [
+                'allow' => true,
+                'controllers' => ['products'],
+                'actions' => ['rate', 'index', 'view', 'create'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['categories'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
+                'controllers'=>['favorite'],
+                'roles' => ['@'],
             ],
             [
                 'allow' => true,

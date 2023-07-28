@@ -11,6 +11,7 @@ use Yii;
  * @property int $product_id
  * @property int|null $count
  * @property int|null $time
+ * @property int|null $lastSeen
  *
  * @property Products $product
  */
@@ -31,7 +32,7 @@ class View extends \yii\db\ActiveRecord
     {
         return [
             [['product_id'], 'required'],
-            [['product_id', 'count', 'time'], 'integer'],
+            [['product_id', 'count', 'time', 'lastSeen'], 'integer'],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::class, 'targetAttribute' => ['product_id' => 'id']],
         ];
     }
@@ -46,6 +47,7 @@ class View extends \yii\db\ActiveRecord
             'product_id' => 'Product ID',
             'count' => 'Count',
             'time' => 'Time',
+            'lastSeen' => 'Last Seen',
         ];
     }
 

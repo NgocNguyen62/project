@@ -20,7 +20,7 @@
         "yiisoft/yii2-symfonymailer": "~2.0.3",
         "hail812/yii2-adminlte3": "*",
         "2amigos/qrcode-library": "*",
-        "endroid/qrcode": "*",
+        "endroid/qr-code": "*",
         "practically/yii2-chartjs": "^1.1",
         "2amigos/yii2-chartjs-widget": "^3.0",
         "kartik-v/bootstrap-star-rating": "dev-master",

@@ -19,8 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <style>
         #panorama {
-            width: 400px;
-            height: 200px;
+            width: 1000px;
+            height: 400px;
         }
     </style>
 </head>

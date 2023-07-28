@@ -11,7 +11,7 @@ use dosamigos\chartjs\ChartJs;
 
         'data' => [
             'radius' =>  "100%",
-            'labels' =>\app\models\Products::getCate(),
+            'labels' =>\app\models\Products::getCategories(),
             'datasets' => [
                 [
                     'data' => \app\models\View::getPercent(),
@@ -36,7 +36,7 @@ use dosamigos\chartjs\ChartJs;
 
     'clientOptions' => [
         'legend' => [
-            'display' => false,
+            'display' => true,
             'position' => 'bottom',
             'labels' => [
                 'fontSize' => 14,

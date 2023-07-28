@@ -1,14 +1,17 @@
 <?php
-/**
- * @copyright Copyright (c) 2013-15 2amigOS! Consulting Group LLC
- * @link http://2amigos.us
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
+
+/*
+ * This file is part of the 2amigos/qrcode-library project.
+ *
+ * (c) 2amigOS! <http://2amigos.us/>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
-namespace dosamigos\qrcode\traits;
 
+namespace Da\QrCode\Traits;
 
-use yii\base\InvalidConfigException;
-use yii\validators\UrlValidator;
+use Da\QrCode\Exception\InvalidConfigException;
 
 trait UrlTrait
 {
@@ -22,12 +25,12 @@ trait UrlTrait
      *
      * @throws InvalidConfigException
      */
-    public function setUrl($value)
+    public function setUrl(string $value)
     {
         $error = null;
-        $validator = new UrlValidator();
-        if (!$validator->validate($value, $error)) {
-            throw new InvalidConfigException($error);
+
+        if (!filter_var($value, FILTER_VALIDATE_URL)) {
+            throw new InvalidConfigException('Url seems invalid.');
         }
 
         $this->url = $value;
@@ -36,7 +39,8 @@ trait UrlTrait
     /**
      * @return string the URL
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->url;
     }
 }

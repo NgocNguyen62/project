@@ -1,6 +1,7 @@
 <?php
 
 use app\models\base\Products;
+use app\models\Categories;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -10,7 +11,7 @@ use yii\grid\GridView;
 /** @var app\models\search\ProductsSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Products';
+$this->title = 'Sản phẩm';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="products-index">
@@ -18,7 +19,7 @@ $this->title = 'Products';
 <!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <p>
-        <?= Html::a('Create Products', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tạo mới sản phẩm', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
@@ -39,10 +40,14 @@ $this->title = 'Products';
                     return Html::a(Html::img($path, ['width' => '80', 'height' => '80']));
                 }
             ],
-            'name',
+            [
+                    'attribute' => 'name',
+                    'label' => 'Tên sản phẩm'
+            ],
 //            'category_id',
             [
                 'attribute' => 'category_id',
+                'label'=>'Phân loại',
                 'filter' => Html::activeDropDownList(
                     $searchModel,
                     'category_id',
@@ -50,13 +55,15 @@ $this->title = 'Products';
                     ['class' => 'form-control', 'prompt' => 'All']
                 ),
                 'value' => function ($model) {
-                    return $model->category->name;
+//                    return Categories::findOne(['id'=> $model->category_id])->name;
+                    return $model->getCategory();
                 },
             ],
 //            'description',
 //            'status',
             [
                 'attribute' => 'status',
+                'label'=> 'Trạng thái',
                 'filter' => Html::activeDropDownList(
                     $searchModel,
                     'status',

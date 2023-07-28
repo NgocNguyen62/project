@@ -1,23 +1,25 @@
 <?php
-/**
- * @copyright Copyright (c) 2013-15 2amigOS! Consulting Group LLC
- * @link http://2amigos.us
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
+
+/*
+ * This file is part of the 2amigos/qrcode-library project.
+ *
+ * (c) 2amigOS! <http://2amigos.us/>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
-namespace dosamigos\qrcode\traits;
 
+namespace Da\QrCode\Traits;
 
-use yii\base\InvalidConfigException;
-use yii\validators\EmailValidator;
+use Da\QrCode\Exception\InvalidConfigException;
 
 /**
  * EmailTrait
  *
  * Provides methods to handle the email property
  *
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
+ * @author Antonio Ramirez <hola@2amigos.us>
+ * @link https://www.2amigos.us/
  * @package dosamigos\qrcode\traits
  */
 trait EmailTrait
@@ -25,19 +27,19 @@ trait EmailTrait
     /**
      * @var string a valid email
      */
-    protected $email;
+    private $email;
 
     /**
      * @param string $value the email
      *
      * @throws InvalidConfigException
      */
-    public function setEmail($value)
+    public function setEmail(string $value): void
     {
         $error = null;
-        $validator = new EmailValidator();
-        if (!$validator->validate($value, $error)) {
-            throw new InvalidConfigException($error);
+
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidConfigException('Email seems incorrect.');
         }
 
         $this->email = $value;
@@ -46,7 +48,7 @@ trait EmailTrait
     /**
      * @return string the email
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }

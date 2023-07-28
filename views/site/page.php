@@ -1,88 +1,93 @@
-<?php
+<!--
+=========================================================
+ Light Bootstrap Dashboard - v2.0.1
+=========================================================
 
-use dosamigos\chartjs\ChartJs;
-use yii\bootstrap5\Html;
-use yii\grid\GridView;use yii\helpers\ArrayHelper;
+ Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE)
 
-/** @var yii\web\View $this */
-/** @var yii\data\ActiveDataProvider $dataProvider */
+ Coded by Creative Tim
 
-$this->title = 'Dashboard';
-?>
-<div>
-<?php
-    echo $this->render('chart');
-?>
+=========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="dashboard/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="dashboard/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Light Bootstrap Dashboard - Free Bootstrap 4 Admin Dashboard by Creative Tim</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+<!--    <link href="dashboard/assets/css/bootstrap.min.css" rel="stylesheet" />-->
+<!--    <link href="dashboard/assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />-->
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="css/dashboard.css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="wrapper">
+        <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+    Tip 2: you can also add an image using data-image tag
+-->
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h4 class="card-title">Lượt xem theo phân loại</h4>
+
+                            </div>
+                            <div class="card-body ">
+                                <?= $this->render('chart'); ?>
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h4 class="card-title">Top 10 lượt xem</h4>
+                            </div>
+                            <div class="card-body ">
+                                <?= $this->render('top-view'); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h4 class="card-title">Top đánh giá</h4>
+                            </div>
+                            <div class="card-body ">
+                                <?= $this->render('top-rate'); ?>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<h3>Total views:  <?= \app\models\View::find()->sum('count') ?> </h3>
-<div>
-<h3>Top 10 views:</h3>
-<!--    --><?php //$top = \app\models\View::getTop() ?>
-<!--    --><?php //foreach ($top as $item):  ?>
-<!--    <div>-->
-<!--        <p>--><?php //= $item->name ?><!-- : --><?php //= \app\models\View::findOne(['product_id'=> $item->id])->count ?><!-- views </p>-->
-<!--    </div>-->
-<!--     --><?php //endforeach; ?>
-</div>
-<?php
-////$dataProvider = \app\models\View::getTop();
-//echo GridView::widget([
-//            'dataProvider' => $dataProvider,
-//        'columns' => [
-//               [
-//                       'label' => 'Name',
-//                   'value' => function($model){
-//                        return $model->name;
-//                   }
-//               ],
-//            [
-//                    'label' => 'Views',
-//                'value' => function($model){
-//                    $item = \app\models\View::findOne(['product_id'=>$model->id]);
-//                    if($item !== null){
-//                        return $item->count;
-//                    }
-//                    return 'null';
-//                }
-//            ],
-//        ]
-//    ])
-//?>
-<div>
-<?= ChartJs::widget([
-    'type' => 'bar',
-    'options' => [
-        'height' => 100,
-        'width' => 100,
-        'indexAxis'=> 'y',
-        'elements' => [
-                'bar'=>[
-                        'borderWidth' => 2,
-                ]
-        ]
-    ],
-    'data' => [
-        'labels' => ArrayHelper::getColumn(\app\models\View::getTop(), 'name'),
-        'datasets' => [
-            [
-                'label' => "Views",
-                'backgroundColor' => "rgba(255,99,132,0.2)",
-                'borderColor' => "rgba(255,99,132,1)",
-                'pointBackgroundColor' => "rgba(255,99,132,1)",
-                'pointBorderColor' => "#fff",
-                'pointHoverBackgroundColor' => "#fff",
-                'pointHoverBorderColor' => "rgba(255,99,132,1)",
-                'data' => \app\models\View::getViewTop()
-            ]
-        ],
-        'responsive' => true,
-        'plugin'=>[
-                'legend' => [
-                        'position' => 'right',
-                ],
 
-        ]
-    ]
-]);
-?>
-</div>
+
+
+</body>
+
+
+</html>

@@ -42,7 +42,8 @@ class Products extends \yii\db\ActiveRecord
         return [
             [['name', 'category_id', 'status', 'avatar', 'image_360'], 'required'],
             [['category_id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'description', 'avatar', 'image_360', 'created_by', 'updated_by'], 'string', 'max' => 255],
+            [['name', 'avatar', 'image_360', 'created_by', 'updated_by'], 'string', 'max' => 255],
+            [['description'], 'string', 'max' => 5000],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::class, 'targetAttribute' => ['category_id' => 'id']],
         ];
     }

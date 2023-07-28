@@ -10,15 +10,15 @@ use yii\grid\GridView;
 /** @var app\models\search\CategoriesSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Categories';
+$this->title = 'Phân loại';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="categories-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <p>
-        <?= Html::a('Create Categories', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Thêm loại mới', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -29,9 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'name',
-            'description',
+//            'id',
+            [
+                'attribute' => 'avatar',
+                'filter' => false,
+                'label' => 'Avatar',
+                'format' => 'raw',
+                'value' => function($model){
+                    $path = $model->avatar;
+                    return Html::a(Html::img($path, ['width' => '80', 'height' => '80']));
+                }
+            ],
+            [
+                'attribute' => 'name',
+                'label' => 'Tên phân loại'
+            ],
+//            'description',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Categories $model, $key, $index, $column) {

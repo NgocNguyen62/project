@@ -1,6 +1,6 @@
 <?php
 
-use app\models\UserProfile;
+use app\models\base\UserProfile;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'phoneNum',
             //'email:email',
             //'gender',
+            //'avatar',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, UserProfile $model, $key, $index, $column) {

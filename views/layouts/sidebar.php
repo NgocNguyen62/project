@@ -1,8 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-<!--        <img src="--><?php //=$assetDir?><!--/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
-        <span class="brand-text font-weight-light">Manager</span>
+    <a href="#" class="brand-link">
+<!--        <img src="--><?php //=$assetDir?><!--/img/logo.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
+        <i class="fa fa-windows"></i>
+        <span class="brand-text font-weight-light"> Products 360</span>
     </a>
 
     <!-- Sidebar -->
@@ -61,7 +62,7 @@
 //                    ['label'=> 'Đánh giá', 'url'=>['rate/']],
 
                     ['label' => 'SYSTEM', 'header' => true],
-                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],
+                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank', 'visible' => Yii::$app->user->can('admin')],
 //                    ['label' => 'Storage'],
 
 //                    ['label' => 'LABELS', 'header' => true],

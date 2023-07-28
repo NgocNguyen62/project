@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\base\Qrcode;
 use app\models\base\Rate;
 use app\models\base\View;
 use app\models\Products;
@@ -11,9 +12,12 @@ use app\models\User;
 use Yii;
 use yii\base\Model;
 use yii\base\Theme;
+use yii\data\ActiveDataProvider;
 use yii\helpers\FileHelper;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -50,7 +54,11 @@ class ProductsController extends Controller
     {
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        if(!Yii::$app->user->can('admin')){
+            $query = Products::find()->andFilterWhere(['created_by' => Yii::$app->user->identity->username]);
+            $dataProvider = new ActiveDataProvider(['query'=>$query]);
 
+        }
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -65,6 +73,10 @@ class ProductsController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        if(!Yii::$app->user->can('admin') && $model->created_by !== Yii::$app->user->identity->username){
+            throw new ForbiddenHttpException('You are not allowed to view this product.');
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -87,6 +99,8 @@ class ProductsController extends Controller
                 $model->load($this->request->post());
                 $model->avatar = UploadedFile::getInstance($model, 'avatar');
                 $model->image_360 = UploadedFile::getInstance($model, 'image_360');
+//                var_dump($model->save($product));
+//                die();
                 if($model->save($product)){
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
@@ -109,6 +123,11 @@ class ProductsController extends Controller
         $product = $this->findModel($id);
         $avatar = $product->avatar;
         $image = $product->image_360;
+//        $qrcode = Qrcode::findOne(['product_id'=>$product->id]);
+//        $qr = '';
+//        if($qrcode !== null){
+//            $qr=$qrcode->qr;
+//        }
 
         $model = new ProductForm();
         $model->setAttributes($product->attributes);
@@ -120,6 +139,7 @@ class ProductsController extends Controller
             $model->image_360 = UploadedFile::getInstance($model, 'image_360');
             $product->updated_at = time();
             $product->updated_by = \Yii::$app->user->identity->username;
+
             if ($model->save($product)) {
                 if(file_exists($avatar)){
                     unlink($avatar);
@@ -127,6 +147,9 @@ class ProductsController extends Controller
                 if(file_exists($image)){
                     unlink($image);
                 }
+//                if(file_exists($qr)){
+//                    unlink($qr);
+//                }
 
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -146,6 +169,10 @@ class ProductsController extends Controller
     public function actionDelete($id)
     {
         $model =  $this->findModel($id);
+        $qr = Qrcode::findOne(['product_id'=>$id]);
+        $qr->delete();
+        $view = View::findOne(['product_id'=>$id]);
+        $view->delete();
         $folder = 'products/'. $model->id . '-' . $model->name;
         if (file_exists($folder)) {
             FileHelper::removeDirectory($folder);
@@ -158,10 +185,11 @@ class ProductsController extends Controller
     public function actionView360($id)
     {
         $model = Products::findOne(['id'=>$id]);
-        return $this->render('view360', ['model' => $model]);
+        return $this->renderAjax('view360', ['model' => $model]);
     }
 
     public function actionRate($id){
+//        die();
         $model = Products::findOne(['id'=>$id]);
         $rate = Rate::findOne(['product_id'=>$id, 'user_id' => \Yii::$app->user->identity->id]);
         if($rate == null){
@@ -173,28 +201,28 @@ class ProductsController extends Controller
 //        var_dump($rate->load(Yii::$app->request->post()));
 //        die();
         if($rate->load(Yii::$app->request->post()) && $rate->save()){
-            return $this->render('view', [
+            return $this->renderAjax('details', [
                 'model' => $model,
             ]);
+//            return $this->redirect(Yii::$app->request->referrer);
         }
-        return $this->render('rate', ['model' => $rate]);
+        return $this->renderAjax('rate', ['model' => $rate]);
     }
     public function actionDetails($id) {
-//        $is_page_refreshed = (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] == 'max-age=0');
+        $is_page_refreshed = (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] == 'max-age=0');
         $product = $this->findModel($id);
-//        if (!Yii::$app->user->can('admin') && $product->created_by != Yii::$app->user->identity->username) {
-//            die();
-//        }
-//        if(!$is_page_refreshed){
-//            if(!$product->increasingView($id)){
-//                $view = new View();
-//                $view->product_id = $id;
-//                $view->time = time();
-//                $view->count = 1;
-//                $view->save();
-//
-//            }
-//        }
+//        var_dump(Yii::$app->session);
+//        die();
+        if(!$is_page_refreshed){
+            if(!$product->increasingView($id)){
+                $view = new View();
+                $view->product_id = $id;
+                $view->time = time();
+                $view->count = 1;
+                $view->save();
+
+            }
+        }
         return $this->renderAjax('details', [
             'model' => $product,
         ]);

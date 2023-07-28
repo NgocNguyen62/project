@@ -5,14 +5,17 @@ namespace app\models;
 //use dosamigos\qrcode\QrCode;
 use app\models\base\Rate;
 use app\models\base\View;
+use app\models\Categories;
 use Endroid\QrCode\Color\Color;
 use Endroid\QrCode\Label\Label;
-use Endroid\QrCode\QrCode;
+
 use Endroid\QrCode\Logo\Logo;
 
+use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 use Yii;
-use app\models\Categories;
+use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 class Products extends \app\models\base\Products
@@ -28,6 +31,14 @@ class Products extends \app\models\base\Products
         }
         return $options;
     }
+    public static function getCategories(){
+        $cate = Categories::find()->all();
+        $options = [];
+        foreach ($cate as $item) {
+            $options[] = $item->name;
+        }
+        return $options;
+    }
 
     public static function getStatus() {
         return [
@@ -39,8 +50,16 @@ class Products extends \app\models\base\Products
 
     public function increasingView($product_id){
         if(($view = View::findOne(['product_id'=>$product_id])) !== null){
-            $view->count += 1;
+            $lastSeen = $view->time;
             $view->time = time();
+            if($view->lastSeen == Yii::$app->user->identity->id){
+                if($view->time - $lastSeen >= 120){
+                    $view->count += 1;
+                }
+            } else{
+                $view->count += 1;
+            }
+            $view->lastSeen=Yii::$app->user->identity->id;
             $view->save();
             return true;
         }
@@ -49,18 +68,23 @@ class Products extends \app\models\base\Products
 
     public function createQr(){
         $writer = new PngWriter();
-        $url = Url::to(['products/view', 'id' => $this->id], true);
-        $qr = QrCode::create($url);
+        $url = Url::to(['products/details', 'id' => $this->id], true);
+        $qr = new QrCode($url);
 
-        $result = $writer->write($qr);
-        $path = 'qrcodes/'. $this->name.time().'.png';
-        $result ->saveToFile($path);
+//        $result = $writer->write($qr);
+        $folder = 'products/'. $this->id . '-' . $this->name;
+        if (!file_exists($folder)) {
+            mkdir($folder, 0777, true);
+        }
+        $path = $folder . '/' . 'qr-' .$this->name . '.png';
+        $qr->writeFile($path);
+//        $result ->saveToFile($path);
         return $path;
     }
 
     public function getCategory()
     {
-        return Categories::findOne(['id'=> $this->category_id])->name;
+        return (string)Categories::findOne(['id'=> $this->category_id])->name;
     }
     public function getQrcodes(){
         return \app\models\base\Qrcode::findOne(['product_id'=>$this->id]);
@@ -82,7 +106,8 @@ class Products extends \app\models\base\Products
     public function getRate(){
         $rates = Rate::find()->where(['product_id'=> $this->id]);
         if($rates !== null){
-            return $rates->average('rate');
+            $result = round($rates->average('rate'), 1);
+            return $result;
         }
         return 0;
     }
@@ -92,5 +117,48 @@ class Products extends \app\models\base\Products
             return new Rate();
         }
         return $rate;
+    }
+    public function countRate(){
+        return (int) Rate::find()->where(['product_id'=> $this->id])->count();
+    }
+    public function isFavorite(){
+        $user = Yii::$app->user->identity;
+        $favorite = $user->getFavorite();
+//        var_dump($favorite);
+//        die();
+        return in_array($this, $favorite);
+    }
+    public static function getTopRate(){
+        $top = Rate::find()
+            ->select(['product_id', new Expression('AVG(rate) AS avg_rating')])
+            ->groupBy('product_id')
+            ->orderBy(['avg_rating' => SORT_DESC])
+//            ->limit(10)
+            ->all();
+        $productIds = ArrayHelper::getColumn($top, 'product_id');
+        if(Yii::$app->user->can('admin')){
+            $topProducts = Products::find()
+                ->where(['id' => $productIds])
+                ->limit(10)
+                ->all();
+        } else{
+            $topProducts = Products::find()
+                ->where(['id' => $productIds])
+                ->andWhere(['created_by'=>Yii::$app->user->identity->username])
+                ->limit(10)
+                ->all();
+        }
+
+        return $topProducts;
+    }
+    public static function getRateOfTop(){
+        $top = Products::getTopRate();
+        $rates = [];
+        foreach ($top as $product){
+            $rates[] = $product->getRate();
+        }
+//        var_dump($views);
+//        die();
+        return $rates;
     }
 }

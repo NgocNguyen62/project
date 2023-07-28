@@ -29,9 +29,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+//            'id',
+            [
+                'attribute' => 'avatar',
+                'filter' => false,
+                'label' => 'Avatar',
+                'format' => 'raw',
+                'value' => function($model){
+                    $path = $model->avatar;
+                    return Html::a(Html::img($path, ['width' => '80', 'height' => '80']));
+                }
+            ],
             'name',
             'description',
+//            'avatar',
         ],
     ]) ?>
 

@@ -23,10 +23,11 @@ class ProductForm extends Model {
     {
         return [
             [['name', 'category_id', 'status'], 'required'],
-            [['name', 'description'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 255],
+            [['description'], 'string', 'max'=>5000],
             [['category_id', 'status'], 'integer'],
-            [['avatar'], 'file', 'skipOnEmpty' => false, 'extensions' => ['png', 'jpg', 'PNG', 'JPG']],
-            [['image_360'], 'file', 'skipOnEmpty' => false],
+            [['avatar'], 'file', 'skipOnEmpty' => false, 'extensions' => ['png', 'jpg', 'PNG', 'JPG'], 'maxSize' => 1024*1024*10],
+            [['image_360'], 'file', 'skipOnEmpty' => false, 'extensions' => ['jpg']],
         ];
     }
 
@@ -46,8 +47,10 @@ class ProductForm extends Model {
             $path_file360 = 'image_360/' . $this->image_360->baseName . time() . '.' . $this->image_360->extension;
             $model->image_360 = $path_file360;
 //            $this->image_360->saveAs($path_file360);
-
+//            var_dump($model->save());
+//            die();
             $rs = $model->save();
+
             $this->id = $model->id;
 //            return true;
             if($rs){
@@ -61,6 +64,7 @@ class ProductForm extends Model {
                 $model->avatar = $path_avatar;
                 $this->avatar->saveAs($path_avatar);
                 $this->image_360->saveAs($path_file360);
+
                 $model->save();
 
                 if((Qrcode::findOne(['product_id'=>$this->id])) == null){

@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\base\Favorite;
 use Yii;
 
 class User extends \app\models\base\User implements \yii\web\IdentityInterface
@@ -70,5 +71,16 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
         $this->updated_at = time();
         $this->updated_by = Yii::$app->user->identity->username;
         return true;
+    }
+    public function getFavorite(){
+        $favorite = Favorite::find()->where(['user_id'=>$this->id])->all();
+        $list = [];
+        foreach ($favorite as $item){
+            $list[] = Products::findOne(['id'=>$item->product_id]);
+        }
+        return $list;
+    }
+    public static  function countProducts($user){
+        return Products::find()->where(['created_by'=>$user->username])->count();
     }
 }

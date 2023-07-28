@@ -5,7 +5,7 @@ namespace app\models\base;
 use Yii;
 
 /**
- * This is the model class for table "{{%user_profile}}".
+ * This is the model class for table "user_profile".
  *
  * @property int $id
  * @property int|null $user_id
@@ -14,6 +14,7 @@ use Yii;
  * @property string|null $phoneNum
  * @property string|null $email
  * @property string|null $gender
+ * @property string|null $avatar
  *
  * @property User $user
  */
@@ -24,7 +25,7 @@ class UserProfile extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%user_profile}}';
+        return 'user_profile';
     }
 
     /**
@@ -34,7 +35,7 @@ class UserProfile extends \yii\db\ActiveRecord
     {
         return [
             [['user_id'], 'integer'],
-            [['firstName', 'lastName', 'phoneNum', 'email', 'gender'], 'string', 'max' => 255],
+            [['firstName', 'lastName', 'phoneNum', 'email', 'gender', 'avatar'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -52,6 +53,7 @@ class UserProfile extends \yii\db\ActiveRecord
             'phoneNum' => 'Phone Num',
             'email' => 'Email',
             'gender' => 'Gender',
+            'avatar' => 'Avatar',
         ];
     }
 

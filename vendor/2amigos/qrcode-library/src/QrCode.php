@@ -1,134 +1,354 @@
 <?php
-/**
- * @copyright Copyright (c) 2013-15 2amigOS! Consulting Group LLC
- * @link http://2amigos.us
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- */
-namespace dosamigos\qrcode;
 
-use dosamigos\qrcode\lib\Encode;
-use dosamigos\qrcode\lib\Enum;
-use yii\base\InvalidParamException;
-
-/**
- * Class QrCode creates a QrCode image using the ported to PHP Dominik Dzienia library to render QrCodes
+/*
+ * This file is part of the 2amigos/qrcode-library project.
  *
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- * @package dosamigos\qrcode
+ * (c) 2amigOS! <http://2amigos.us/>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
-class QrCode
+
+namespace Da\QrCode;
+
+use Da\QrCode\Contracts\ErrorCorrectionLevelInterface;
+use Da\QrCode\Contracts\LabelInterface;
+use Da\QrCode\Contracts\QrCodeInterface;
+use Da\QrCode\Contracts\WriterInterface;
+use Da\QrCode\Exception\InvalidPathException;
+use Da\QrCode\Writer\PngWriter;
+
+class QrCode implements QrCodeInterface
 {
-
     /**
-     * Creates a qr code in png format of the text provided
-     * @param string $text the text to encode
-     * @param string|bool $outfile the full file path to save as an image. If false will render an image.
-     * @param int $level the error correction level. Defaults to [[\dosamigos\qr\lib\Enum::QR_ECLEVEL_L]] (low)
-     * @param int $size the size of the image. Defaults to 3.
-     * @param int $margin the margin of the image. Defaults to 4.
-     * @param bool $saveAndPrint whether to also render the image even if we save it on a file.
+     * @var string
      */
-    public static function png(
-        $text,
-        $outfile = false,
-        $level = Enum::QR_ECLEVEL_L,
-        $size = 3,
-        $margin = 4,
-        $saveAndPrint = false
-    ) {
-        static::encode($text, $outfile, $level, $size, $margin, $saveAndPrint, Enum::QR_FORMAT_PNG);
-    }
-
-
+    protected $text;
     /**
-     * Creates a qr code in jpg format of the text provided
-     * @param string $text the text to encode
-     * @param string|bool $outfile the full file path to save as an image. If false will render an image.
-     * @param int $level the error correction level. Defaults to [[\dosamigos\qr\lib\Enum::QR_ECLEVEL_L]] (low)
-     * @param int $size the size of the image. Defaults to 3.
-     * @param int $margin the margin of the image. Defaults to 4.
-     * @param bool $saveAndPrint whether to also render the image even if we save it on a file.
+     * @var int
      */
-    public static function jpg(
-        $text,
-        $outfile = false,
-        $level = Enum::QR_ECLEVEL_L,
-        $size = 3,
-        $margin = 4,
-        $saveAndPrint = false
-    ) {
-        static::encode($text, $outfile, $level, $size, $margin, $saveAndPrint, Enum::QR_FORMAT_JPG);
-    }
-
-
+    protected $size = 300;
     /**
-     * Encodes a text on png format
-     * @param string $text the text to be encoded
-     * @param string|bool $outfile the full file path to save as an image. If false will render an image.
-     * @param int $level the error correction level. Defaults to [[\dosamigos\qr\lib\Enum::QR_ECLEVEL_L]] (low)
-     * @param int $size the size of the image. Defaults to 3.
-     * @param int $margin the margin of the image. Defaults to 4.
-     * @return array|int
+     * @var int
      */
-    public static function text($text, $outfile = false, $level = Enum::QR_ECLEVEL_L, $size = 3, $margin = 4)
-    {
-        return static::encode($text, $outfile, $level, $size, $margin, false, Enum::QR_FORMAT_TEXT);
-    }
-
-
+    protected $margin = 10;
     /**
-     * Encodes a string in raw format
-     * @param string $text the text to be encoded
-     * @param string|bool $outfile the full file path to save as an image. If false will render an image.
-     * @param int $level the error correction level. Defaults to [[\dosamigos\qr\lib\Enum::QR_ECLEVEL_L]] (low)
-     * @param int $size the size of the image. Defaults to 3.
-     * @param int $margin the margin of the image. Defaults to 4.
-     * @return array|int
+     * @var array
      */
-    public static function raw($text, $outfile = false, $level = Enum::QR_ECLEVEL_L, $size = 3, $margin = 4)
-    {
-        return static::encode($text, $outfile, $level, $size, $margin, false, Enum::QR_FORMAT_RAW);
-    }
+    protected $foregroundColor = [
+        'r' => 0,
+        'g' => 0,
+        'b' => 0
+    ];
+    /**
+     * @var array
+     */
+    protected $backgroundColor = [
+        'r' => 255,
+        'g' => 255,
+        'b' => 255
+    ];
+    /**
+     * @var string
+     */
+    protected $encoding = 'UTF-8';
+    /**
+     * @var string ErrorCorrectionLevelInterface value
+     */
+    protected $errorCorrectionLevel;
+    /**
+     * @var string
+     */
+    protected $logoPath;
+    /**
+     * @var int
+     */
+    protected $logoWidth;
+    /**
+     * @var LabelInterface
+     */
+    protected $label;
+    /**
+     * @var WriterInterface
+     */
+    protected $writer;
 
     /**
-     * Creates a Qr Code in Png, Jpg, Raw or Text format
+     * QrCode constructor.
      *
-     * @param string $text the text to be encoded
-     * @param string|bool $outfile the full file path to save as an image. If false will render an image.
-     * @param int $level the error correction level. Defaults to [[\dosamigos\qr\lib\Enum::QR_ECLEVEL_L]] (low)
-     * @param int $size the size of the image. Defaults to 3.
-     * @param int $margin the margin of the image. Defaults to 4.
-     * @param bool $saveAndPrint
-     * @param int $type
-     * @return array|int
-     * @throws \yii\base\InvalidParamException
+     * @param string|null $text
+     * @param string|null $errorCorrectionLevel
+     * @param WriterInterface|null $writer
      */
-    public static function encode(
-        $text,
-        $outfile = false,
-        $level = Enum::QR_ECLEVEL_L,
-        $size = 3,
-        $margin = 4,
-        $saveAndPrint = false,
-        $type = Enum::QR_FORMAT_PNG
-    ) {
-        $enc = Encode::factory($level, $size, $margin);
+    public function __construct(string $text, string $errorCorrectionLevel = null, WriterInterface $writer = null)
+    {
+        $this->text = $text;
+        $this->errorCorrectionLevel = $errorCorrectionLevel ?: ErrorCorrectionLevelInterface::LOW;
+        $this->writer = $writer ?: new PngWriter();
+    }
 
-        switch ($type) {
-            case Enum::QR_FORMAT_PNG:
-                $enc->encodePNG($text, $outfile, $saveAndPrint);
-                break;
-            case Enum::QR_FORMAT_JPG:
-                $enc->encodeJPG($text, $outfile, $saveAndPrint);
-                break;
-            case Enum::QR_FORMAT_RAW:
-                return $enc->encode($text, $outfile, true);
-            case Enum::QR_FORMAT_TEXT:
-                return $enc->encode($text, $outfile);
-            default:
-                throw new InvalidParamException("Unknown format $type");
+    /**
+     * @param int $red
+     * @param int $green
+     * @param int $blue
+     *
+     * @return $this
+     */
+    public function setForegroundColor(int $red, int $green, int $blue): self
+    {
+        $this->foregroundColor = [
+            'r' => $red,
+            'g' => $green,
+            'b' => $blue,
+        ];
+
+        return $this;
+    }
+
+    /**
+     * @param int $red
+     * @param int $green
+     * @param int $blue
+     *
+     * @return $this
+     */
+    public function setBackgroundColor(int $red, int $green, int $blue): self
+    {
+        $this->backgroundColor = [
+            'r' => $red,
+            'g' => $green,
+            'b' => $blue,
+        ];
+
+        return $this;
+    }
+
+    /**
+     * @param string $path
+     *
+     * @return $this
+     * @throws InvalidPathException
+     */
+    public function setLogo(string $path): self
+    {
+        $logo = realpath($path);
+        if (!is_file($logo)) {
+            throw new InvalidPathException(sprintf('Invalid logo path: "%s"', $logo));
         }
+        $this->logoPath = $logo;
+
+        return $this;
+    }
+
+    /**
+     * @param string $encoding
+     *
+     * @return $this
+     */
+    public function setEncoding(string $encoding): self
+    {
+        $this->encoding = $encoding;
+
+        return $this;
+    }
+
+    /**
+     * @param WriterInterface $writer
+     *
+     * @return $this
+     */
+    public function setWriter(WriterInterface $writer): self
+    {
+        $this->writer = $writer;
+
+        return $this;
+    }
+
+    /**
+     * @param string $errorCorrectionLevel
+     *
+     * @return $this
+     */
+    public function setErrorCorrectionLevel(string $errorCorrectionLevel): self
+    {
+        $this->errorCorrectionLevel = $errorCorrectionLevel;
+
+        return $this;
+    }
+
+    /**
+     * @param string $text
+     *
+     * @return $this
+     */
+    public function setText(string $text): self
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * @param int $size
+     *
+     * @return $this
+     */
+    public function setSize(int $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * @param int $margin
+     *
+     * @return $this
+     */
+    public function setMargin(int $margin): self
+    {
+        $this->margin = $margin;
+
+        return $this;
+    }
+
+    /**
+     * @param int $width
+     *
+     * @return $this
+     */
+    public function setLogoWidth(int $width): self
+    {
+        $this->logoWidth = $width;
+
+        return $this;
+    }
+
+    /**
+     * @param LabelInterface|string $label
+     *
+     * @return $this
+     */
+    public function setLabel($label): self
+    {
+        $this->label = $label instanceof LabelInterface ? $label : new Label($label);
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSize(): int
+    {
+        return $this->size;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMargin(): int
+    {
+        return $this->margin;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getForegroundColor(): array
+    {
+        return $this->foregroundColor;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getBackgroundColor(): array
+    {
+        return $this->backgroundColor;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getEncoding(): string
+    {
+        return $this->encoding;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getErrorCorrectionLevel(): string
+    {
+        return $this->errorCorrectionLevel;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getLogoPath(): ?string
+    {
+        return $this->logoPath;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getLogoWidth(): ?int
+    {
+        return $this->logoWidth;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getLabel(): ?LabelInterface
+    {
+        return $this->label;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentType(): string
+    {
+        return $this->writer->getContentType();
+    }
+
+    /**
+     * @throws Exception\ValidationException
+     * @throws Exception\BadMethodCallException
+     * @return string
+     */
+    public function writeString(): string
+    {
+        return $this->writer->writeString($this);
+    }
+
+    /**
+     * @return string
+     */
+    public function writeDataUri(): string
+    {
+        return $this->writer->writeDataUri($this);
+    }
+
+    /**
+     * @param string $path
+     *
+     * @return bool|int
+     */
+    public function writeFile(string $path)
+    {
+        return $this->writer->writeFile($this, $path);
     }
 }

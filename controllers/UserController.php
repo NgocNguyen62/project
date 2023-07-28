@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\form\UserForm;
+use app\models\search\ProductsSearch;
 use app\models\User;
 use app\models\search\UserSearch;
 use app\models\UserProfile;
@@ -101,7 +102,7 @@ class UserController extends Controller
         $model->setAttributes($user->attributes);
 
         if ($this->request->isPost && $model->load($this->request->post())) {
-            $model->password = Yii::$app->getSecurity()->generatePasswordHash($model->password);
+//            $model->password = Yii::$app->getSecurity()->generatePasswordHash($model->password);
             $user->updateValue();
             $model->save($user);
             return $this->redirect(['view', 'id' => $model->id]);
@@ -156,5 +157,9 @@ class UserController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    public function actionFavorite(){
+        $searchModel = new ProductsSearch();
+        return $this->renderAjax('favorite', ['searchModel'=>$searchModel]);
     }
 }

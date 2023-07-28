@@ -37,10 +37,16 @@ class View extends \app\models\base\View
     public static function getTop(){
         $top = View::find()->orderBy(['count' => SORT_DESC])->limit(10)->all();
         $productIds = ArrayHelper::getColumn($top, 'product_id');
+        if(Yii::$app->user->can('admin')){
+            $topProducts = Products::find()
+                ->where(['id' => $productIds])
+                ->all();
 
-        $topProducts = Products::find()
-            ->where(['id' => $productIds])
-            ->all();
+        } else{
+            $topProducts = Products::find()
+                ->where(['id' => $productIds])->andWhere(['created_by'=>Yii::$app->user->identity->username])
+                ->all();
+        }
         return $topProducts;
     }
 

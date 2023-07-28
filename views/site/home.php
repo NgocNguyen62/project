@@ -1,4 +1,7 @@
 <?php
+
+use kartik\rating\StarRating;
+use yii\bootstrap4\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
@@ -122,19 +125,23 @@ $products = $dataProvider->getModels();
                             <?php if(Yii::$app->user->isGuest){ ?>
                             <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user"></i> Login</a>
                             <?php } else { ?>
-                                <li><i class="fa fa-user"></i> <?= Yii::$app->user->identity->username ?></li>
+                                <i class="fa fa-user"></i> <?= Yii::$app->user->identity->username ?>
                                 <ul class="sub-user">
                                     <a href="#">
                                         <i><?=\app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->id]) !== null? Html::a('Profile', ['user-profile/update/', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></i>
-                                        <i><?= Html::a('Sign out', ['site/logout'], ['data-method' => 'post', 'class' => 'dropdown-item']) ?></i>
+                                        <i><?= Html::a('Sign out', ['site/logout'], ['class' => 'dropdown-item']) ?></i>
                                         <i><?= Html::a('Change Password', ['user/change-pass/', 'id' => Yii::$app->user->identity->getId()], ['class' => 'dropdown-item'])?></i>
                                     </a>
                                 </ul>
                             <?php } ?>
                         </div>
-                        <div class="header__top__right__manager">
-                            <a href="<?= Url::to(['site/index']) ?>">Manager</a>
-                        </div>
+                        <?php
+                            if(!Yii::$app->user->isGuest){
+                        ?>
+                            <div class="header__top__right__manager">
+                                <a href="<?= Url::to(['site/index']) ?>">Manager</a>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -150,8 +157,8 @@ $products = $dataProvider->getModels();
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li class="active"><a href="./shop-grid.html">Shop</a></li>
+                        <li><a href="<?= Url::to(['site/home']) ?>">Home</a></li>
+                        <li class="active"><a href="<?= Url::to(['site/home']) ?>">Shop</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="./shop-details.html">Shop Details</a></li>
@@ -476,21 +483,61 @@ $products = $dataProvider->getModels();
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="<?= $product->avatar ?>">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="<?= Url::to(['products/view', 'id' => $product->id]) ?>"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="<?= Url::to(['products/details', 'id' => $product->id]) ?>"><i class="fa fa-eye"></i></a></li>
 
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="<?= Url::to(['products/rate', 'id'=>$product->id]) ?>"><i class="fa fa-star"></i></a></li>
+                                    <li>
+                                    <?php
+                                    Modal::begin([
+
+                                        'toggleButton' => [
+
+                                            'label' => '<i class="fa fa-star"></i>',
+
+//                                            'class' => 'btn btn-success',
+                                            'id'=> 'modalButton',
+//                                            'value'=> Url::to(['rate', 'id'=>$model->id])
+                                        ],
+
+                                        'closeButton' => [
+
+                                            'label' => 'Close',
+
+                                            'class' => 'btn btn-danger btn-sm pull-right',
+
+                                        ],
+
+                                        'size' => 'modal-lg',
+                                        'id'=>'modal'
+
+                                    ]);
+//                                    echo $this->render('@app/views/products/rate', ['model'=>$product->getOptionRate()]);
+                                    echo StarRating::widget(['name' => 'rating_input',
+//                                        'model' => $model,
+                                        'attribute' => 'rate',
+                                        'pluginOptions' => [
+                                            'stars' => 5,
+                                            'min' => 0,
+                                            'max' => 5,
+                                            'step' => 1,
+                                            'symbol' => html_entity_decode('&#xe005;', ENT_QUOTES, "utf-8"),
+                                            'defaultCaption' => '{rating} hearts',
+                                            'starCaptions'=>[],
+                                            'starCaptionsCallback' => new yii\web\JsExpression('function(rating, index) {
+            return index;
+        }'),
+                                            'starClickedCallback' => new yii\web\JsExpression('function(rating, index) {
+            $("#rating-input").val(rating);
+        }'),
+                                        ]
+                                    ]);
+                                    ?>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="<?= Url::to(['products/view', 'id' => $product->id]) ?>"><?= $product->name ?></a></h6>
-                                <?php
-                                    $view = \app\models\View::findOne(['product_id'=> $product->id]);
-                                    $count = 0;
-                                    if($view!== null){
-                                        $count = $view->count;
-                                    }
-                                ?>
-                                <h5><?= 'Lượt xem: '. $count ?> </h5>
+                                <h6><a href="<?= Url::to(['products/details', 'id' => $product->id]) ?>"><?= $product->name ?></a></h6>
+                                <h5><?= 'Lượt xem: '. $product->getViews() ?> </h5>
                             </div>
                         </div>
                     </div>
