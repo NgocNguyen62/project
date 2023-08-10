@@ -104,7 +104,7 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['user'],
-                'actions' => ['create', 'update', 'index', 'view'],
+                'actions' => ['create', 'index'],
                 'roles' => ['admin'],
 //                'denyCallback' => function ($rule, $action) {
 //                    throw new \Exception('You are not allowed to access this page');
@@ -113,7 +113,7 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['user'],
-                'actions' => ['change-pass', 'profile'],
+                'actions' => ['change-pass', 'profile','favorite', 'update', 'view'],
                 'roles' => ['@'],
             ],
             [

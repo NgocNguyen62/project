@@ -1,17 +1,3 @@
-<!--
-=========================================================
- Light Bootstrap Dashboard - v2.0.1
-=========================================================
-
- Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
- Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE)
-
- Coded by Creative Tim
-
-=========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -27,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <!-- CSS Files -->
+    <link href="template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 <!--    <link href="dashboard/assets/css/bootstrap.min.css" rel="stylesheet" />-->
 <!--    <link href="dashboard/assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />-->
     <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -35,30 +23,35 @@
 
 <body>
 <div class="wrapper">
-        <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-
-    Tip 2: you can also add an image using data-image tag
--->
     </div>
     <div class="main-panel">
-        <!-- Navbar -->
-        <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                        <div class="card ">
+<!--                    <div class="description">-->
+<!--                        <h4>Tổng số sản phẩm: --><?php //= Yii::$app->user->identity->countProducts() ?><!--</h4>-->
+<!--                    </div>-->
+                        <div class="col-md-7">
                             <div class="card-header ">
-                                <h4 class="card-title">Lượt xem theo phân loại</h4>
+                                <h4>Lượt xem theo phân loại</h4>
 
                             </div>
-                            <div class="card-body ">
+                            <div class="card-body">
                                 <?= $this->render('chart'); ?>
                             </div>
                         </div>
+                    <div class="col-md-5">
+                        <br>
+                        <ul>
+                            <li>Tổng số sản phẩm: <?= Yii::$app->user->identity->countProducts() ?></li>
+                            <li>Tổng lượt xem:<?= \app\models\View::getTotalView() ?></li>
+                        </ul>
+                    </div>
+                </div>
+
                 </div>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="card ">
                             <div class="card-header ">
                                 <h4 class="card-title">Top 10 lượt xem</h4>

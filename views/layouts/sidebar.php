@@ -1,10 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-<!--        <img src="--><?php //=$assetDir?><!--/img/logo.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
-        <i class="fa fa-windows"></i>
-        <span class="brand-text font-weight-light"> Products 360</span>
-    </a>
+    <a href="#" class="brand-link">Product 360</a>
 
     <!-- Sidebar -->
     <div class="sidebar">

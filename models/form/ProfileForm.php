@@ -22,7 +22,10 @@ class ProfileForm extends Model
     {
         return [
             [['user_id'], 'integer'],
-            [['firstName', 'lastName', 'phoneNum', 'gender', 'email'], 'string', 'max' => 255],
+            [['firstName', 'lastName', 'gender'], 'string', 'max' => 255],
+            ['email', 'email'],
+            [['phoneNum'], 'match', 'pattern' => '/^[0-9]{10}$/',
+                'message' => 'Số điện thoại bao gồm 10 chữ số không có khoảng trắng.'],
 //            [['gender'], 'safe'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
             [['avatar'], 'file', 'skipOnEmpty' => true, 'extensions' => ['png', 'jpg', 'PNG', 'JPG'], 'maxSize' => 1024 * 1024 * 10],
@@ -42,27 +45,30 @@ class ProfileForm extends Model
             $model->phoneNum = $this->phoneNum;
             $model->email = $this->email;
             $model->gender = $this->gender;
-            $path_avatar = 'avatar/' ;
-            $model->avatar = $path_avatar;
+//            $path_avatar = 'avatar/' ;
+//            $model->avatar = $path_avatar;
+//            var_dump($model);
+//            die();
             $rs = $model->save();
 
             $this->id = $model->id;
             if ($rs) {
-                $folder = 'user/';
-                if (!file_exists($folder)) {
-                    mkdir($folder, 0777, true);
+                if($this->avatar !== null) {
+                    $folder = 'user/';
+                    if (!file_exists($folder)) {
+                        mkdir($folder, 0777, true);
+                    }
+                    $path_avatar = $folder . $this->user_id . '-' . time() . '.' . $this->avatar->extension;
+                    $model->avatar = $path_avatar;
+                    $this->avatar->saveAs($path_avatar);
+                    $model->save();
                 }
-                $path_avatar = $folder .  $this->user_id . '-' . time() . '.' . $this->avatar->extension;
-                $model->avatar = $path_avatar;
-                $this->avatar->saveAs($path_avatar);
-
-                $model->save();
                 return true;
             } else {
-                var_dump($this->errors);
-                die();
+//                var_dump($this->errors);
+//                die();
+                return false;
             }
-            return false;
         }
     }
 

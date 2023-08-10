@@ -121,7 +121,7 @@ class UserController extends Controller
         if ($this->request->isPost && $model->load($this->request->post())) {
             $user->updateValue();
             $model->save($user);
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['user-profile/view', 'id' => Yii::$app->user->identity->getProfileId()]);
         }
 
         return $this->render('change-pass', [

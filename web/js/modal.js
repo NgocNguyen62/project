@@ -1,31 +1,23 @@
-// $('#modalButton').on('click', function(){
-//     if ($('#modal').data('bs.modal').isShown) {
-//         $('#modal').find('#modalContent')
-//             .load($(this).attr('value'));
-//         document.getElementById('modalHeader').innerHTML = '<h4>' + $(this).attr('title') + '</h4>';
-//     } else {
-//         //if modal isn't open; open it and load content
-//         $('#modal').modal('show')
-//             .find('#modalContent')
-//             .load($(this).attr('value'));
-//         //dynamiclly set the header for the modal
-//         document.getElementById('modalHeader').innerHTML = '<h4>' + $(this).attr('title') + '</h4>';
-//     }
-// })
-// $(document).ready(function() {
-//     // Attach click event to the modal button
-//     $('#modalButton').on('click', function() {
-//         var url = $(this).attr('value');
-//
-//         // Make an AJAX request to fetch the modal content
-//         $.ajax({
-//             url: url,
-//             type: 'get',
-//             success: function(response) {
-//                 // Set the fetched content to the modal body
-//                 $('#modal').modal('show');
-//                 $('#modalContent').html(response);
-//             }
-//         });
-//     });
-// });
+$(document).ready(function() {
+    // Get the modal
+    var modal = $("#myModal");
+
+    // Get the button that opens the modal
+    var btn = $("#myBtn");
+
+    // When the user clicks on the button, open the modal
+    btn.click(function(e) {
+        e.preventDefault();
+        // Get the URL from the "data-url" attribute of the button
+        var popupUrl = $(this).data("url");
+        console.log(popupUrl)
+
+        // Load the content into the modal body and show the modal
+        modal.modal('show').find('.modal-body').load(popupUrl);
+    });
+
+    // When the user clicks on <span> (x) or outside of the modal, close the modal
+    modal.on("hidden.bs.modal", function() {
+        modal.find(".modal-body").empty();
+    });
+});

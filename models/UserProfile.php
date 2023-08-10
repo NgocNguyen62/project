@@ -15,4 +15,10 @@ class UserProfile extends \app\models\base\UserProfile
         $this->gender = implode(',', $this->gender);
         $this->save();
     }
+    public function getGender(){
+        if($this->gender == 'male'){
+            return 'nam';
+        }
+        return 'nữ';
+    }
 }

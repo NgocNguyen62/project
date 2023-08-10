@@ -11,6 +11,7 @@ use app\models\View;
 use http\Env\Url;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
@@ -168,24 +169,36 @@ class SiteController extends Controller
     }
     public function actionHome(){
         $searchModel = new ProductsSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
-//        $query = Products::find()->andFilterWhere(['status' => 1]);
-//        $dataProvider = new ActiveDataProvider(['query'=>$query]);
+        $dataProvider = $searchModel->searchActive($this->request->queryParams);
+        $pagination = new Pagination([
+            'defaultPageSize' => 12, // Số mục trên mỗi trang
+            'totalCount' => $dataProvider->getTotalCount(), // Tổng số mục
+        ]);
+
+        $dataProvider->pagination = $pagination;
         return $this->renderAjax('home2', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
 
     }
     public function actionCategories(){
         $searchModel = new ProductsSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider = $searchModel->searchActive($this->request->queryParams);
+        $pagination = new Pagination([
+            'defaultPageSize' => 12, // Số mục trên mỗi trang
+            'totalCount' => $dataProvider->getTotalCount(), // Tổng số mục
+        ]);
+
+        $dataProvider->pagination = $pagination;
         return $this->renderAjax('categories', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
     }
     public function actionCategoryDetails($id){
         $searchModel = new ProductsSearch();
-        $dataProvider = new ActiveDataProvider([
-            'query' => Products::find()
-                ->where(['category_id' => $id ]),
+        $dataProvider = $searchModel->searchCate($this->request->queryParams, $id);
+        $pagination = new Pagination([
+            'defaultPageSize' => 12, // Số mục trên mỗi trang
+            'totalCount' => $dataProvider->getTotalCount(), // Tổng số mục
         ]);
-        $products = Products::find()->where(['category_id'=>$id]);
+
+        $dataProvider->pagination = $pagination;
         return $this->renderAjax('category-details', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
     }
 

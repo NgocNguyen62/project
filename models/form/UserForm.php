@@ -24,7 +24,9 @@ class UserForm extends Model
     {
         return [
             [['username', 'password'], 'required'],
-            [['username', 'password'], 'string', 'max' => 255],
+            [['username'], 'string', 'max' => 255],
+            ['password', 'string', 'min' => 8, 'message'=>'Mật khẩu ít nhất 8 kí tự'],
+            ['password', 'match', 'pattern' => '/[!@#$%^&*(),.?":{}|<>]/', 'message' => 'Mật khẩu bao gồm ít nhất 1 kí tự đặc biệt.'],
 //            [['firstName', 'lastName'], 'string', 'max' => 255],
 //            [['phoneNum'], 'string', 'max' => 10],
             [['id', 'profile_id'], 'integer'],

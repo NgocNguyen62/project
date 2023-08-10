@@ -36,7 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
     pannellum.viewer('panorama', {
         "type": "equirectangular",
         "panorama": "<?php echo $panoramaUrl; ?>",
-        "autoLoad": true
+        "autoLoad": true,
+        "autoRotate": -2
     });
 </script>
 

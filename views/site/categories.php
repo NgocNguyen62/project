@@ -2,9 +2,11 @@
 
 use kartik\rating\StarRating;
 use yii\bootstrap4\Modal;
+use yii\bootstrap4\LinkPager;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+//use yii\widgets\LinkPager;
 
 /** @var yii\web\View $this */
 /** @var app\models\search\ProductsSearch $searchModel */
@@ -87,31 +89,35 @@ $cates = \app\models\Categories::find()->all();
                             <li><a href="<?= Url::to(['site/index']) ?>">Quản lý </a></li>
                         <?php }?>
                         <!--                        <li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>-->
-                        <li class="user">
+                        <ul class="user">
                             <?php if(Yii::$app->user->isGuest){ ?>
-                                <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Login</a>
+                                <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Đăng nhập </a>
                             <?php } else { ?>
-                                <i class="fa fa-user"></i> <span><?= Yii::$app->user->identity->username ?></span>
-                                <ul class="sub-user">
-                                    <a href="#">
-                                        <i><?=\app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->id]) !== null? Html::a('Profile', ['user-profile/profile', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></i>
-                                        <i>
-                                            <?php
-                                            ActiveForm::begin();
-                                            echo Html::a('Sign out', ['site/logout'],
-                                                ['class' => 'dropdown-item',
-                                                    'data' => [
-                                                        'method' => 'post',
-                                                    ],
-                                                ]);
-                                            ActiveForm::end();
-                                            ?>
-                                        </i>
-                                        <i><?= Html::a('Change Password', ['user/change-pass/', 'id' => Yii::$app->user->identity->getId()], ['class' => 'dropdown-item'])?></i>
+<!--                                <i class="fa fa-user"></i> <span>--><?php //= Yii::$app->user->identity->username ?><!--</span>-->
+                                <img src="<?= !file_exists(Yii::$app->user->identity->getUserProfiles()->avatar)? "image/default.png":Yii::$app->user->identity->getUserProfiles()->avatar?>" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px; margin-left: 40px; margin-bottom: 5px">
+                                <span><?= Yii::$app->user->identity->username ?></span>
 
+                                <ul class="sub-user">
+                                    <!--                                    <a href="#">-->
+                                    <li></li>
+                                    <li><?=\app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->id]) !== null? Html::a('Thông tin', ['user-profile/update/', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
+                                    <li><?= Html::a('Đổi mật khẩu', ['user/change-pass/', 'id' => Yii::$app->user->identity->getId()], ['class' => 'dropdown-item'])?></li>
+                                    <li>
+                                        <?php
+                                        ActiveForm::begin();
+                                        echo Html::a('Đăng xuất ', ['site/logout'],
+                                            ['class' => 'dropdown-item',
+                                                'data' => [
+                                                    'method' => 'post',
+                                                ],
+                                            ]);
+                                        ActiveForm::end();
+                                        ?>
+                                    </li>
+                                    <li></li>
                                 </ul>
                             <?php } ?>
-                            </a></li>
+                            </a></ul>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -125,8 +131,9 @@ $cates = \app\models\Categories::find()->all();
 <!-- ***** Header Area End ***** -->
 
 <div class="container">
-    <div class="row">
-            <div class="page-content">
+    <div class="page-content">
+        <div class="row">
+<!--            <div class="page-content">-->
             <div class="col-lg-14">
                 <!-- ***** Featured Games Start ***** -->
                 <div class="row">
@@ -151,10 +158,9 @@ $cates = \app\models\Categories::find()->all();
                             <div class="heading-section">
                                 <h4>Tất cả sản phẩm</h4>
                             </div>
-                            <div class="owl-features owl-carousel">
+<!--                            <div class="owl-features owl-carousel">-->
                                 <div class="row">
-                                <?php foreach ($products as $product) {
-                                    if($product->status != 0){ ?>
+                                <?php foreach ($products as $product) {?>
                                         <div class="col-lg-3 col-sm-6">
                                             <a href="<?= Url::to(['products/details', 'id' => $product->id]) ?>">
                                                 <div class="item">
@@ -168,9 +174,21 @@ $cates = \app\models\Categories::find()->all();
                                             </a>
                                             <!--                                    <h4><a href="--><?php //= Url::to(['products/rate', 'id'=>$product->id]) ?><!--">Rate</a></h4>-->
                                         </div>
-                                    <?php }} ?>
+                                    <?php } ?>
                                 </div>
                             </div>
+                        </div>
+                        <div class="page">
+                            <?php
+                            echo LinkPager::widget([
+                                'pagination' => $dataProvider->pagination,
+//                        'options' => ['class' => 'custom-pagination'], // Thêm lớp custom-pagination
+                                'options' => ['style' => 'margin: 5px;
+                                                   display: flex;
+                                                   justify-content: center;'
+                                ],
+                            ]);
+                            ?>
                         </div>
                     </div>
 
@@ -179,6 +197,7 @@ $cates = \app\models\Categories::find()->all();
             </div>
             </div>
     </div>
+
 </div>
 
 <footer>
@@ -199,10 +218,10 @@ $cates = \app\models\Categories::find()->all();
 <script src="template/vendor/jquery/jquery.min.js"></script>
 <script src="template/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="template/assets/js/isotope.min.js"></script>
+<!--<script src="template/assets/js/isotope.min.js"></script>-->
 <script src="template/assets/js/owl-carousel.js"></script>
 <script src="template/assets/js/tabs.js"></script>
-<script src="template/assets/js/popup.js"></script>
+<!--<script src="template/assets/js/popup.js"></script>-->
 <script src="template/assets/js/custom.js"></script>
 
 

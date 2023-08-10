@@ -104,9 +104,10 @@ class UserProfileController extends Controller
 
         if ($this->request->isPost && $model->load($this->request->post())) {
             $model->avatar = UploadedFile::getInstance($model, 'avatar');
-
+//            var_dump($model->avatar);
+//            die();
             if ($model->save($profile)) {
-                if(file_exists($avatar)){
+                if(!is_dir($avatar) && file_exists($avatar)){
                     unlink($avatar);
                 }
                 return $this->redirect(['view', 'id' => $id]);

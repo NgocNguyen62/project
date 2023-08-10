@@ -42,26 +42,27 @@ class Products extends \app\models\base\Products
 
     public static function getStatus() {
         return [
-           self::ACTIVE => 'active',
-           self::INACTIVE => 'inactive'
+           self::ACTIVE => 'Hoạt động',
+           self::INACTIVE => 'Khóa'
         ];
     }
 
 
     public function increasingView($product_id){
-        if(($view = View::findOne(['product_id'=>$product_id])) !== null){
+        if(($view = View::findOne(['product_id'=>$product_id]))){
             $lastSeen = $view->time;
             $view->time = time();
-            if($view->lastSeen == Yii::$app->user->identity->id){
+//            if($view->lastSeen == Yii::$app->user->identity->id){
                 if($view->time - $lastSeen >= 120){
                     $view->count += 1;
                 }
-            } else{
-                $view->count += 1;
+//            } else{
+//                $view->count += 1;
+//            }
+//            $view->lastSeen=Yii::$app->user->identity->id;
+            if($view->save()){
+                return true;
             }
-            $view->lastSeen=Yii::$app->user->identity->id;
-            $view->save();
-            return true;
         }
         return false;
     }
@@ -161,4 +162,12 @@ class Products extends \app\models\base\Products
 //        die();
         return $rates;
     }
+
+
+    public function getEachRate($rate)
+    {
+        $result = Rate::find()->where(['product_id'=>$this->id])->andWhere(['rate'=>$rate])->count();
+        return (int) Rate::find()->where(['product_id'=>$this->id])->andWhere(['rate'=>$rate])->count();
+    }
+
 }

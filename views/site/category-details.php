@@ -2,6 +2,7 @@
 
 use kartik\rating\StarRating;
 use yii\bootstrap4\Modal;
+use yii\bootstrap4\LinkPager;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
@@ -71,7 +72,7 @@ $cates = \app\models\Categories::find()->all();
                         <?php
                         $form = ActiveForm::begin([
                             'method' => 'get',
-                            'action' => ['site/categories'],
+                            'action' => ['site/category-details', 'id'=>Yii::$app->request->get('id')],
                         ]); ?>
                         <?= $form->field($searchModel, 'name')->input('text',['placeholder'=>'Search', 'id'=>'searchText', 'onkeypress'=>'handle', 'style' => 'background-color: #27292a; color: #ffffff;']) ?>
                         <?php ActiveForm::end();
@@ -88,31 +89,33 @@ $cates = \app\models\Categories::find()->all();
                             <li><a href="<?= Url::to(['site/index']) ?>">Quản lý </a></li>
                         <?php }?>
                         <!--                        <li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>-->
-                        <li class="user">
+                        <ul class="user">
                             <?php if(Yii::$app->user->isGuest){ ?>
-                                <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Login</a>
+                                <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Đăng nhập </a>
                             <?php } else { ?>
-                                <i class="fa fa-user"></i> <span><?= Yii::$app->user->identity->username ?></span>
+                                <img src="<?= !file_exists(Yii::$app->user->identity->getUserProfiles()->avatar)? "image/default.png":Yii::$app->user->identity->getUserProfiles()->avatar?>" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px; margin-left: 40px; margin-bottom: 5px">
+                                <span><?= Yii::$app->user->identity->username ?></span>
                                 <ul class="sub-user">
-                                    <a href="#">
-                                        <i><?=\app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->id]) !== null? Html::a('Profile', ['user-profile/profile', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></i>
-                                        <i>
-                                            <?php
-                                            ActiveForm::begin();
-                                            echo Html::a('Sign out', ['site/logout'],
-                                                ['class' => 'dropdown-item',
-                                                    'data' => [
-                                                        'method' => 'post',
-                                                    ],
-                                                ]);
-                                            ActiveForm::end();
-                                            ?>
-                                        </i>
-                                        <i><?= Html::a('Change Password', ['user/change-pass/', 'id' => Yii::$app->user->identity->getId()], ['class' => 'dropdown-item'])?></i>
-
+                                    <!--                                    <a href="#">-->
+                                    <li></li>
+                                    <li><?=\app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->id]) !== null? Html::a('Thông tin', ['user-profile/update/', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
+                                    <li><?= Html::a('Đổi mật khẩu', ['user/change-pass/', 'id' => Yii::$app->user->identity->getId()], ['class' => 'dropdown-item'])?></li>
+                                    <li>
+                                        <?php
+                                        ActiveForm::begin();
+                                        echo Html::a('Đăng xuất ', ['site/logout'],
+                                            ['class' => 'dropdown-item',
+                                                'data' => [
+                                                    'method' => 'post',
+                                                ],
+                                            ]);
+                                        ActiveForm::end();
+                                        ?>
+                                    </li>
+                                    <li></li>
                                 </ul>
                             <?php } ?>
-                            </a></li>
+                            </a></ul>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -154,7 +157,7 @@ $cates = \app\models\Categories::find()->all();
                                 <p><?= $category->description ?></p>
                                 <br>
                             </div>
-                            <div class="owl-features owl-carousel">
+<!--                            <div class="owl-features owl-carousel">-->
                                 <div class="row">
                                     <?php foreach ($products as $product) {
                                         if($product->status !== 0){ ?>
@@ -174,6 +177,18 @@ $cates = \app\models\Categories::find()->all();
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="page">
+                        <?php
+                        echo LinkPager::widget([
+                            'pagination' => $dataProvider->pagination,
+//                        'options' => ['class' => 'custom-pagination'], // Thêm lớp custom-pagination
+                            'options' => ['style' => 'margin: 5px;
+                                                   display: flex;
+                                                   justify-content: center;'
+                            ],
+                        ]);
+                        ?>
                     </div>
 
                 </div>

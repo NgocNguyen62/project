@@ -78,36 +78,38 @@ https://templatemo.com/tm-579-cyborg-gaming
                           <li><a href="<?= Url::to(['site/home']) ?>">Trang chủ</a></li>
                           <!--                        <li><a href="browse.html">Browse</a></li>-->
                           <li><a href="<?= Url::to(['site/categories']) ?>">Danh mục</a></li>
-                          <li><a href="<?= Url::to(['user/favorite']) ?>"class="active">Yêu thích </a></li>
+                          <li><a href="<?= Url::to(['user/favorite']) ?>" class="active"> Yêu thích </a></li>
                           <?php if(!Yii::$app->user->isGuest){ ?>
                               <li><a href="<?= Url::to(['site/index']) ?>">Quản lý </a></li>
                           <?php }?>
                           <!--                        <li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>-->
-                          <li class="user">
+                          <ul class="user">
                               <?php if(Yii::$app->user->isGuest){ ?>
-                                  <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Login</a>
+                                  <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Đăng nhập </a>
                               <?php } else { ?>
-                                  <i class="fa fa-user"></i> <span><?= Yii::$app->user->identity->username ?></span>
+                                  <img src="<?= !file_exists(Yii::$app->user->identity->getUserProfiles()->avatar)? "image/default.png":Yii::$app->user->identity->getUserProfiles()->avatar?>" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px; margin-left: 40px; margin-bottom: 5px">
+                                  <span><?= Yii::$app->user->identity->username ?></span>
                                   <ul class="sub-user">
-                                      <a href="#">
-                                          <i><?=\app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->id]) !== null? Html::a('Profile', ['user-profile/profile', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></i>
-                                          <i>
-                                              <?php
-                                              ActiveForm::begin();
-                                              echo Html::a('Sign out', ['site/logout'],
-                                                  ['class' => 'dropdown-item',
-                                                      'data' => [
-                                                          'method' => 'post',
-                                                      ],
-                                                  ]);
-                                              ActiveForm::end();
-                                              ?>
-                                          </i>
-                                          <i><?= Html::a('Change Password', ['user/change-pass/', 'id' => Yii::$app->user->identity->getId()], ['class' => 'dropdown-item'])?></i>
-
+                                      <!--                                    <a href="#">-->
+                                      <li></li>
+                                      <li><?=\app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->id]) !== null? Html::a('Thông tin', ['user-profile/update/', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
+                                      <li><?= Html::a('Đổi mật khẩu', ['user/change-pass/', 'id' => Yii::$app->user->identity->getId()], ['class' => 'dropdown-item'])?></li>
+                                      <li>
+                                          <?php
+                                          ActiveForm::begin();
+                                          echo Html::a('Đăng xuất ', ['site/logout'],
+                                              ['class' => 'dropdown-item',
+                                                  'data' => [
+                                                      'method' => 'post',
+                                                  ],
+                                              ]);
+                                          ActiveForm::end();
+                                          ?>
+                                      </li>
+                                      <li></li>
                                   </ul>
                               <?php } ?>
-                              </a></li>
+                              </a></ul>
                       </ul>
                       <a class='menu-trigger'>
                           <span>Menu</span>
@@ -129,13 +131,14 @@ https://templatemo.com/tm-579-cyborg-gaming
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="heading-section">
-                            <h4><em>Your Favorites</h4>
+                            <h4>Sản phẩm yêu thích</h4>
                         </div>
                         <div class="row">
                             <?php foreach ($favorites as $product) { ?>
                                 <div class="col-lg-3 col-sm-6">
                                     <a href="<?= Url::to(['products/details', 'id' => $product->id]) ?>">
                                         <div class="item">
+
                                             <img src="<?= $product->avatar ?>" alt="">
                                             <h4><?= $product->name ?><br><span><?= $product->getCategory()?></span></h4>
                                             <ul>
@@ -143,6 +146,21 @@ https://templatemo.com/tm-579-cyborg-gaming
                                                 <li><i class="fa fa-eye"></i> <?= $product->getViews() ?></li>
                                                 <li><a href="<?= Url::to(['products/rate', 'id'=>$product->id]) ?>">Rate</a></li>
                                             </ul>
+                                            <?php
+                                            ActiveForm::begin();
+                                            echo Html::a(' Xóa',
+                                                ['favorite/delete', 'id' => \app\models\base\Favorite::findOne(['product_id'=>$product->id])->id],
+                                                [
+                                                    'class' => 'delete-item',
+                                                    'data' => [
+                                                        'method' => 'post', // Set the method to POST
+                                                        'confirm' => 'Are you sure you want to remove this product from favorites?',
+                                                    ],
+
+                                                ]
+                                            );
+                                            ActiveForm::end();
+                                            ?>
                                         </div>
                                     </a>
                                 </div>

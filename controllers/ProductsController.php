@@ -74,9 +74,12 @@ class ProductsController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-        if(!Yii::$app->user->can('admin') && $model->created_by !== Yii::$app->user->identity->username){
-            throw new ForbiddenHttpException('You are not allowed to view this product.');
+        if(!Yii::$app->user->isGuest){
+            if(!Yii::$app->user->can('admin') && $model->created_by !== Yii::$app->user->identity->username){
+                throw new ForbiddenHttpException('You are not allowed to view this product.');
+            }
         }
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -201,10 +204,10 @@ class ProductsController extends Controller
 //        var_dump($rate->load(Yii::$app->request->post()));
 //        die();
         if($rate->load(Yii::$app->request->post()) && $rate->save()){
-            return $this->renderAjax('details', [
-                'model' => $model,
-            ]);
-//            return $this->redirect(Yii::$app->request->referrer);
+//            return $this->renderAjax('details', [
+//                'model' => $model,
+//            ]);
+            return $this->redirect(Yii::$app->request->referrer);
         }
         return $this->renderAjax('rate', ['model' => $rate]);
     }
@@ -213,18 +216,37 @@ class ProductsController extends Controller
         $product = $this->findModel($id);
 //        var_dump(Yii::$app->session);
 //        die();
-        if(!$is_page_refreshed){
-            if(!$product->increasingView($id)){
-                $view = new View();
-                $view->product_id = $id;
-                $view->time = time();
-                $view->count = 1;
-                $view->save();
+//        if(!$is_page_refreshed){
+//            if(!$product->increasingView($id)){
+//                $view = new View();
+//                $view->product_id = $id;
+//                $view->time = time();
+//                $view->count = 1;
+//                $view->save();
+//
+//            }
+//        }
+        if(!Yii::$app->user->isGuest) {
+            $rate = Rate::findOne(['product_id' => $id, 'user_id' => \Yii::$app->user->identity->id]);
+            if ($rate == null) {
+                $rate = new Rate();
+                $rate->product_id = $id;
+                $rate->user_id = \Yii::$app->user->identity->id;
+            }
+            $rate->time = time();
+//        var_dump($rate);
+//        die();
 
+            if ($rate->load(Yii::$app->request->post()) && $rate->save()) {
+                return $this->renderAjax('details', [
+                    'model' => $product,
+                    'rate' => $rate,
+                ]);
             }
         }
         return $this->renderAjax('details', [
             'model' => $product,
+            'rate'=>new Rate(),
         ]);
     }
 

@@ -80,7 +80,13 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
         }
         return $list;
     }
-    public static  function countProducts($user){
-        return Products::find()->where(['created_by'=>$user->username])->count();
+    public static  function countProducts(){
+        if(Yii::$app->user->can('admin')){
+            return Products::find()->count();
+        }
+        return Products::find()->where(['created_by'=>Yii::$app->user->identity->username])->count();
+    }
+    public function getUserProfiles(){
+        return UserProfile::findOne(['user_id'=>$this->id]);
     }
 }

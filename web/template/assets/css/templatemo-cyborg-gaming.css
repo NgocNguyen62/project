@@ -118,7 +118,53 @@ img {
   width: 100%;
   overflow: hidden;
   height: 150px;
+  object-fit: cover;
 }
+
+/* Định dạng các số trang */
+/*.page .pagination > ul > li > a {*/
+/*  margin: 5px;*/
+/*  padding: 5px 10px;*/
+/*  background-color: #f0f0f0;*/
+/*  border: 1px solid #ccc;*/
+/*  border-radius: 5px;*/
+/*  text-decoration: none;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*!* Định dạng số trang hiện tại *!*/
+/*.page .pagination > li.active > a {*/
+/*  background-color: #007bff;*/
+/*  color: #fff;*/
+/*}*/
+
+/*!* Định dạng các liên kết trước và sau *!*/
+/*.page .pagination > li.prev > a, ul.pagination > li.next > a {*/
+/*  background-color: #007bff;*/
+/*  color: #fff;*/
+/*}*/
+
+/*!* Hiệu ứng hover khi di chuột vào các số trang và các liên kết *!*/
+/*.page .pagination > li > a:hover {*/
+/*  background-color: #0056b3;*/
+/*}*/
+.page{
+  height: 20px;
+  margin-top: 20px;
+}
+.page-link{
+  background-color: #333333;
+}
+.page-item a{
+  color: #e75e8d;
+}
+.active>.page-link{
+  background-color: #e75e8d;
+  border-color: #e75e8d;
+}
+
+
+
 
 /* 
 ---------------------------------------------
@@ -141,6 +187,11 @@ body .page-content {
 a.active{
   color: #e75e8d;
 }
+
+/*li.active a{*/
+/*  color: #e75e8d;*/
+/*  margin: 10px;*/
+/*}*/
 
 p {
   font-size: 15px;
@@ -232,6 +283,23 @@ section {
   color: #fff;
   font-style: normal;
   text-decoration: underline;
+}
+.btn-link{
+ text-decoration: none;
+  color: #cccccc;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+.rate-form {
+  margin-right: 40%;
+  justify-content: center;
+}
+.rating-container .rating-stars .empty-stars{
+  display: flex;
+}
+.rating-container .rating-stars .filled-stars{
+  display: flex;
 }
 
 /* 
@@ -342,11 +410,15 @@ Header Style
 --------------------------------------------- 
 */
 .user{
-  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .user i{
   color: #cccccc;
-  margin-top: 8px;
+  margin-top: 15px;
+}
+.user a{
+  margin-top: 5px;
+  padding-top: 15px;
 }
 .user span{
   color: #cccccc;
@@ -354,13 +426,19 @@ Header Style
 .sub-user{
   position: absolute;
   width: 150px;
-  border: 1px solid #cccccc;
+  border: 1px solid #e75e8d;
   /*padding: 10px 0 10px 20px;*/
   display: none;
-  border-radius: 0.25rem;
-  justify-content: center;
-  /*background-color: #cccccc;*/
+  border-radius: 1rem;
+  background-color: #1f2122;
+  align-items: center;
+  padding-right: 40px;
 }
+.sub-user .dropdown-item {
+  text-align: center;
+  justify-content: center;
+}
+
 .item{
   margin-bottom: 20px;
 }
@@ -863,6 +941,7 @@ Most Popular Style
 
 .most-popular .item img {
   border-radius: 23px;
+  object-fit: cover;
 }
 
 .most-popular .item h4 {
@@ -1235,7 +1314,8 @@ Live Stream Style
 }
 
 .live-stream .thumb img {
-  border-radius: 23px; 
+  border-radius: 23px;
+  object-fit: cover;
 }
 
 .live-stream .thumb:hover .hover-effect {
@@ -1282,6 +1362,7 @@ Live Stream Style
 
 .live-stream .avatar img {
   margin-right: 15px;
+  object-fit: cover;
 }
 
 .live-stream span i {
@@ -1390,7 +1471,7 @@ Game Details Style
 
 .game-details .content .left-info ul li {
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 3px;
 }
 
@@ -1407,6 +1488,7 @@ Game Details Style
   border-radius: 23px;
   padding: 30px;
   margin-bottom: 30px;
+  display: block;
 }
 
 .game-details .content .right-info ul li {
@@ -1420,6 +1502,10 @@ Game Details Style
 .game-details .content .right-info ul li i {
   display: block;
   margin-bottom: 12px;
+}
+
+.game-details .content .left-info ul li span {
+  justify-content: center;
 }
 
 .game-details .content .right-info ul li:first-child i {
@@ -1463,6 +1549,7 @@ Other Related Style
   float: left;
   margin-right: 15px;
   height: 80px;
+  object-fit: cover;
 }
 
 .other-games .item h4 {

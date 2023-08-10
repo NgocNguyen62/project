@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-profile-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -41,11 +41,26 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'user_id',
-            'firstName',
-            'lastName',
-            'phoneNum',
+            [
+                    'attribute'=>'firstName',
+                'label'=>'Họ'
+            ],
+            [
+                'attribute'=>'lastName',
+                'label'=>'Tên'
+            ],
+            [
+                'attribute'=>'phoneNum',
+                'label'=>'Số điện thoại'
+            ],
             'email:email',
-            'gender',
+            [
+                'attribute'=>'gender',
+                'label'=>'Giới tính',
+                'value'=>function($model){
+                   return $model->getGender();
+                }
+            ],
         ],
     ]) ?>
 

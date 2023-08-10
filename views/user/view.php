@@ -30,14 +30,46 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'username',
-            'password',
-            'role',
-            'created_at',
-            'updated_at',
-            'created_by',
-            'updated_by',
-            'lock',
+            [
+                'attribute'=>'username',
+                'label'=>'Tên người dùng'
+            ],
+            [
+                    'attribute'=>'password',
+                'label'=>'Mật khẩu'
+            ],
+//            'role',
+            [
+                'attribute' => 'role',
+                'label'=>'Vai trò',
+            ],
+            [
+                'attribute'=>'created_at',
+                'label'=>'Thời gian tạo'
+            ],
+            [
+                'attribute'=>'created_by',
+                'label'=>'Người tạo'
+            ],
+            [
+                'attribute'=>'updated_at',
+                'label'=>'Thời gian cập nhật'
+            ],
+            [
+                'attribute'=>'updated_by',
+                'label'=>'Người cập nhật'
+            ],
+            [
+                'attribute'=>'lock',
+                'label'=>'Khóa',
+                'value'=>function($model){
+                    if($model->lock == 0){
+                        return 'Không';
+                    } else{
+                        return 'Khóa';
+                    }
+                }
+            ],
         ],
     ]) ?>
 

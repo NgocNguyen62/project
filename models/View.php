@@ -17,14 +17,33 @@ class View extends \app\models\base\View
     }
     public static function getPercent(){
         $query = new Query();
-        $query->select('SUM(view.count)')
-            ->from('products')
-            ->leftJoin('view', 'products.id = view.product_id')
-            ->leftJoin('categories', 'products.category_id = categories.id')
-            ->groupBy('categories.name');
-        $view = $query->createCommand()->queryColumn();
+        $querySum = new Query();
+        if(!Yii::$app->user->can('admin')){
+            $query->select('SUM(view.count)')
+                ->where(['created_by'=>Yii::$app->user->identity->username])
+                ->from('products')
+                ->leftJoin('view', 'products.id = view.product_id')
+                ->leftJoin('categories', 'products.category_id = categories.id')
+                ->groupBy('categories.name');
+            $sum = $querySum->select('SUM(view.count)')
+                ->where(['created_by'=>Yii::$app->user->identity->username])
+                ->from('products')
+                ->leftJoin('view', 'products.id = view.product_id')
+                ->scalar();
+        } else{
+            $query->select('SUM(view.count)')
+                ->from('products')
+                ->leftJoin('view', 'products.id = view.product_id')
+                ->leftJoin('categories', 'products.category_id = categories.id')
+                ->groupBy('categories.name');
+            $sum = View::find()->sum('count');
+            
+        }
 
-        $sum = View::find()->sum('count');
+        $view = $query->createCommand()->queryColumn();
+//        var_dump($sum);
+//        die();
+
         $percents = [];
 
         foreach ($view as $count) {
@@ -59,5 +78,16 @@ class View extends \app\models\base\View
 //        var_dump($views);
 //        die();
         return $views;
+    }
+    public static function getTotalView(){
+        if(Yii::$app->user->can('admin')){
+            return $sum = View::find()->sum('count');
+        }
+        $querySum = new Query();
+        return $querySum->select('SUM(view.count)')
+            ->where(['created_by'=>Yii::$app->user->identity->username])
+            ->from('products')
+            ->leftJoin('view', 'products.id = view.product_id')
+            ->scalar();
     }
 }

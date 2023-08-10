@@ -29,12 +29,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'username',
+//            'id',
+            [
+                    'attribute'=>'username',
+                'label'=>'Tên người dùng'
+            ],
 //            'password',
 //            'role',
             [
                 'attribute' => 'role',
+                'label'=>'Vai trò',
                 'filter' => Html::activeDropDownList(
                     $searchModel,
                     'role',
@@ -42,11 +46,33 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'form-control', 'prompt' => 'All']
                 ),
             ],
-            'created_at',
-            'updated_at',
-            'created_by',
-            'updated_by',
-            'lock',
+            [
+                    'attribute'=>'created_at',
+                'label'=>'Thời gian tạo'
+            ],
+            [
+                'attribute'=>'created_by',
+                'label'=>'Người tạo'
+            ],
+            [
+                'attribute'=>'updated_at',
+                'label'=>'Thời gian cập nhật'
+            ],
+            [
+                'attribute'=>'updated_by',
+                'label'=>'Người cập nhật'
+            ],
+            [
+                    'attribute'=>'lock',
+                'label'=>'Khóa',
+                'value'=>function($model){
+                    if($model->lock == 0){
+                        return 'Không';
+                    } else{
+                        return 'Khóa';
+                    }
+                }
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, User $model, $key, $index, $column) {

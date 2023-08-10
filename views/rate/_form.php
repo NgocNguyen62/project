@@ -11,11 +11,7 @@ use kartik\rating\StarRating;
 
 <div class="rate-form">
 
-    <?php $form = ActiveForm::begin(); ?>
-
-
-<!--    --><?php //= $form->field($model, 'rate')->hiddenInput(['id' => 'rating_input']) ?>
-
+    <?php $form = ActiveForm::begin(['options'=>['id'=>'rate-product']]); ?>
     <?php
     echo StarRating::widget(['name' => 'rating_input',
         'model' => $model,
@@ -34,11 +30,10 @@ use kartik\rating\StarRating;
             'starClickedCallback' => new yii\web\JsExpression('function(rating, index) {
             $("#rating-input").val(rating);
         }'),
-        ]
+        ],
+        'options' => ['class' => 'form-control']
     ]);
     ?>
-
-<!--    --><?php //= $form->field($model, 'time')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

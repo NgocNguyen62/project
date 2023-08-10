@@ -40,24 +40,30 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'id',
-            'name',
-            'category_id',
-            'description',
-            'status',
-//            'avatar',
-//            'image_360',
-//            [
-//                'label' => 'Image 360',
-//                'format' => 'raw',
-//                'value' => function($model) {
-//                    $baseUrl = Yii::$app->request->baseUrl; // Get the base URL of the application
-//                    $panoramaUrl = $baseUrl . '/image_360/' . $model->image_360;
-////                        'https://i.ibb.co/ZKgwz75/city-park-blue-sky-with-downtown-skyline-background.jpg'; // Construct the full URL to the panorama image
-////                    $previewUrl = Url::to([$model->image_360], true); // Construct the full URL to the preview image
-//                    $iframe = '<iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=' . $panoramaUrl . '&autoLoad=true"></iframe>';
-//                    return $iframe;
-//                },
-//            ],
+            [
+                'attribute' => 'name',
+                'label' => 'Tên sản phẩm'
+            ],
+//            'category_id',
+            [
+                'attribute' => 'category_id',
+                'label'=>'Phân loại',
+                'value' => function ($model) {
+//                    return Categories::findOne(['id'=> $model->category_id])->name;
+                    return $model->getCategory();
+                },
+            ],
+            [
+                'attribute' => 'description',
+                'label'=>'Mô tả'
+            ],
+            [
+                'attribute' => 'status',
+                'label'=> 'Trạng thái',
+                'value' => function ($model) {
+                    return \app\models\Products::getStatus()[$model->status];
+                },
+            ],
             [
                 'label' => '360',
                 'format' => 'raw',
