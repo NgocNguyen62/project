@@ -25,7 +25,9 @@ $cates = \app\models\Categories::find()->all();
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Cyborg - Awesome HTML5 Template</title>
+    <title>Product 360 - <?= $category->name ?></title>
+    <link rel="icon" type="image/x-icon" href="image/galaxy_icon.png">
+
 
     <!-- Bootstrap core CSS -->
     <link href="template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +76,7 @@ $cates = \app\models\Categories::find()->all();
                             'method' => 'get',
                             'action' => ['site/category-details', 'id'=>Yii::$app->request->get('id')],
                         ]); ?>
-                        <?= $form->field($searchModel, 'name')->input('text',['placeholder'=>'Search', 'id'=>'searchText', 'onkeypress'=>'handle', 'style' => 'background-color: #27292a; color: #ffffff;']) ?>
+                        <?= $form->field($searchModel, 'name')->input('text',['placeholder'=>'Tìm kiếm', 'id'=>'searchText', 'onkeypress'=>'handle', 'style' => 'background-color: #27292a; color: #ffffff;']) ?>
                         <?php ActiveForm::end();
                         ?>
                     </div>

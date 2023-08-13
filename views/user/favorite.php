@@ -19,9 +19,11 @@ $favorites = Yii::$app->user->identity->getFavorite();
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Cyborg - Awesome HTML5 Template</title>
+    <title>Product 360 - Yêu thích</title>
+      <link rel="icon" type="image/x-icon" href="image/galaxy_icon.png">
 
-    <!-- Bootstrap core CSS -->
+
+      <!-- Bootstrap core CSS -->
     <link href="template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -144,7 +146,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                                             <ul>
                                                 <li><i class="fa fa-star"></i> <?= $product->getRate()?></li>
                                                 <li><i class="fa fa-eye"></i> <?= $product->getViews() ?></li>
-                                                <li><a href="<?= Url::to(['products/rate', 'id'=>$product->id]) ?>">Rate</a></li>
+<!--                                                <li><a href="--><?php //= Url::to(['products/rate', 'id'=>$product->id]) ?><!--">Rate</a></li>-->
                                             </ul>
                                             <?php
                                             ActiveForm::begin();

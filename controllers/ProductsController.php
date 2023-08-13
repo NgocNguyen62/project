@@ -216,16 +216,16 @@ class ProductsController extends Controller
         $product = $this->findModel($id);
 //        var_dump(Yii::$app->session);
 //        die();
-//        if(!$is_page_refreshed){
-//            if(!$product->increasingView($id)){
-//                $view = new View();
-//                $view->product_id = $id;
-//                $view->time = time();
-//                $view->count = 1;
-//                $view->save();
-//
-//            }
-//        }
+        if(!$is_page_refreshed){
+            if(!$product->increasingView($id)){
+                $view = new View();
+                $view->product_id = $id;
+                $view->time = time();
+                $view->count = 1;
+                $view->save();
+
+            }
+        }
         if(!Yii::$app->user->isGuest) {
             $rate = Rate::findOne(['product_id' => $id, 'user_id' => \Yii::$app->user->identity->id]);
             if ($rate == null) {

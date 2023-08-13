@@ -42,7 +42,7 @@
 //                        ]
 //                    ],
                     ['label' => 'Dashboard', 'icon' => 'th', 'url' => ['site/page']],
-                    ['label' => 'Main', 'header' => true],
+                    ['label' => 'Quản lý', 'header' => true],
 //                    ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
 //                    ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank'],
 //                    ['label' => !Yii::$app->user->isGuest? 'Logout (' . Yii::$app->user->identity->username . ')':"",
@@ -50,15 +50,15 @@
 //                        'method' => 'post',
 //                        'visible' => !Yii::$app->user->isGuest],
 //                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],
-                    ['label' => 'User', 'url' => ['user/'], 'visible' => Yii::$app->user->can('admin')],
+                    ['label' => 'Người dùng', 'url' => ['user/'], 'visible' => Yii::$app->user->can('admin')],
                     ['label' => 'Sản Phẩm', 'url' => ['products/']],
                     ['label' => 'Phân loại', 'url' => ['categories/']],
 //                    ['label' => 'Qr Code', 'url' => ['qrcode/']],
 //                    ['label'=> 'Lượt xem', 'url'=>['view/']],
 //                    ['label'=> 'Đánh giá', 'url'=>['rate/']],
 
-                    ['label' => 'SYSTEM', 'header' => true],
-                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank', 'visible' => Yii::$app->user->can('admin')],
+//                    ['label' => 'SYSTEM', 'header' => true],
+//                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank', 'visible' => Yii::$app->user->can('admin')],
 //                    ['label' => 'Storage'],
 
 //                    ['label' => 'LABELS', 'header' => true],

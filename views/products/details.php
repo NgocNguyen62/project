@@ -21,9 +21,11 @@ $searchModel = new \app\models\search\ProductsSearch();
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Cyborg - Awesome HTML5 Template</title>
+    <title>Product 360 - Chi tiết sản phẩm</title>
+      <link rel="icon" type="image/x-icon" href="image/galaxy_icon.png">
 
-    <!-- Bootstrap core CSS -->
+
+      <!-- Bootstrap core CSS -->
     <link href="template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -291,12 +293,12 @@ https://templatemo.com/tm-579-cyborg-gaming
                               <div class="rate-form">
                                   <?php $form = ActiveForm::begin(['options'=>['id'=>'rate-product']]); ?>
                                   <?php
-
+                                  $value = \app\models\base\Rate::findOne(['product_id'=>$model->id, 'user_id'=>Yii::$app->user->identity->id]);
                                   echo StarRating::widget([
                                       'name' => 'Rate[rate]',
                                       'model' => $rate,
                                       'attribute' => 'rate',
-                                      'value'=> \app\models\base\Rate::findOne(['product_id'=>$model->id, 'user_id'=>Yii::$app->user->identity->id])->rate,
+                                      'value'=> $value == null? 0 : $value->rate,
                                       'pluginOptions' => [
                                           'stars' => 5,
                                           'min' => 0,
@@ -316,7 +318,6 @@ https://templatemo.com/tm-579-cyborg-gaming
                                   ]);
                                   ?>
                                 <br>
-                                <br>
                               <div class="form-group">
                                       <?= Html::submitButton('Lưu', ['class' => 'myBtn']) ?>
                                   </div>
@@ -335,7 +336,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                                           <div class="bar"></div>
                                       </div>
                                   </div>
-                                  <div class="side right"  id = 'chart-data' data-data = '<?= json_encode($model->getEachRate($i)/$model->countRate()*100) ?>'>
+                                  <div class="side right"  id = 'chart-data' data-data = '<?= json_encode($model->countRate()!=0?$model->getEachRate($i)/$model->countRate()*100:0) ?>'>
                                       <div><?= $model->getEachRate($i) ?> lượt</div>
                                   </div>
                               </div>

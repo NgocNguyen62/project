@@ -20,7 +20,7 @@ class View extends \app\models\base\View
         $querySum = new Query();
         if(!Yii::$app->user->can('admin')){
             $query->select('SUM(view.count)')
-                ->where(['created_by'=>Yii::$app->user->identity->username])
+                ->where(['products.created_by'=>Yii::$app->user->identity->username])
                 ->from('products')
                 ->leftJoin('view', 'products.id = view.product_id')
                 ->leftJoin('categories', 'products.category_id = categories.id')

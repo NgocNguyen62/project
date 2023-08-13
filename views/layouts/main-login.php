@@ -17,8 +17,38 @@ $this->registerCssFile('https://code.ionicframework.com/ionicons/2.0.1/css/ionic
     <title>Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
     <?php $this->registerCsrfMetaTags() ?>
     <?php $this->head() ?>
+    <link rel="icon" type="image/x-icon" href="image/galaxy_icon.png">
+    <style>
+        .login-page{
+            /*background-image: url(template/assets/images/galaxy.jpg);*/
+            /*background-size: cover;*/
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        #panorama-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1; /* Move the panorama to the background */
+        }
+        .login-logo b {
+            color: #cccccc;
+        }
+    </style>
 </head>
 <body class="hold-transition login-page">
 <?php  $this->beginBody() ?>
@@ -30,9 +60,23 @@ $this->registerCssFile('https://code.ionicframework.com/ionicons/2.0.1/css/ionic
 
     <?= $content ?>
 </div>
+<div id="panorama-container"></div>
 <!-- /.login-box -->
 
 <?php $this->endBody() ?>
+<script>
+    pannellum.viewer('panorama-container', {
+        type: 'equirectangular',
+        panorama: 'template/assets/images/galaxy.jpg',
+        "autoLoad": true,
+        autoRotate: 2,
+        autoRotateInactivityDelay: 1000,
+        autoRotateStopDelay: 5000,
+        showZoomCtrl: false,
+        showFullscreenCtrl: false,
+    });
+</script>
 </body>
 </html>
+
 <?php $this->endPage() ?>

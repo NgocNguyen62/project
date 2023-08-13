@@ -31,6 +31,8 @@ $this->registerJsFile($publishedRes[1].'/control_sidebar.js', ['depends' => '\ha
     <?php $this->registerCsrfMetaTags() ?>
 <!--    <title>--><?php //= Html::encode($this->title) ?><!--</title>-->
     <?php $this->head() ?>
+    <link rel="icon" type="image/x-icon" href="image/galaxy_icon.png">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <?php $this->beginBody() ?>

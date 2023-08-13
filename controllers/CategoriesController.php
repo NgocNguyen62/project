@@ -5,7 +5,9 @@ namespace app\controllers;
 use app\models\base\Categories;
 use app\models\form\CategoryForm;
 use app\models\search\CategoriesSearch;
+use Yii;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -95,6 +97,11 @@ class CategoriesController extends Controller
     public function actionUpdate($id)
     {
         $cate = $this->findModel($id);
+        if(!Yii::$app->user->isGuest){
+            if(!Yii::$app->user->can('admin') && $cate->created_by !== Yii::$app->user->identity->username){
+                throw new ForbiddenHttpException('Bạn không được phép chỉnh sửa.');
+            }
+        }
         $avatar = $cate->avatar;
         $model = new CategoryForm();
         $model->setAttributes($cate->attributes);
@@ -124,6 +131,12 @@ class CategoriesController extends Controller
      */
     public function actionDelete($id)
     {
+        $cate = $this->findModel($id);
+        if(!Yii::$app->user->isGuest){
+            if(!Yii::$app->user->can('admin') && $cate->created_by !== Yii::$app->user->identity->username){
+                throw new ForbiddenHttpException('Bạn không được phép xóa');
+            }
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

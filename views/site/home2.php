@@ -26,7 +26,8 @@ $products = $dataProvider->getModels();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
 
-    <title>Cyborg - Awesome HTML5 Template</title>
+    <title>Product 360 - Home</title>
+    <link rel="icon" type="image/x-icon" href="image/galaxy_icon.png">
 
     <!-- Bootstrap core CSS -->
     <link href="template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -192,42 +193,42 @@ $products = $dataProvider->getModels();
 <!--                                                                                                            </div>-->
 <!--                                                                                                        </div>-->
 <!--                                                                                                    </div>-->
-                                                        <li>
-                                                            <?php
-
-                                                            Modal::begin([
-                                                                'toggleButton' => [
-
-                                                                    'label' => 'Đánh giá',
-
-                                                                    'class' => "btn btn-link openRateModal",
-                                                                    'data-url' => Url::to(['products/rate', 'id' => $product->id]),
-
-                                                                ],
-
-                                                                'closeButton' => [
-
-                                                                    'label' => 'Close',
-
-                                                                    'class' => 'btn btn-danger btn-sm pull-right',
-                                                                    'id' => 'modal-button-close'
-
-                                                                ],
-
-                                                                'size' => 'modal-lg',
-//                                                                'options' => [
-////                                                                    'id' => 'rateModal_' . $product->id
-//                                                                    'data-bs-backdrop' => 'true',
+<!--                                                        <li>-->
+<!--                                                            --><?php
+//
+//                                                            Modal::begin([
+//                                                                'toggleButton' => [
+//
+//                                                                    'label' => 'Đánh giá',
+//
+//                                                                    'class' => "btn btn-link openRateModal",
+//                                                                    'data-url' => Url::to(['products/rate', 'id' => $product->id]),
+//
 //                                                                ],
-                                                                'id' => 'rateModalContent',
-
-
-                                                            ]);
-                                                            echo "<div id='rateModalContent'></div>";
-                                                            Modal::end();
-
-                                                            ?>
-                                                        </li>
+//
+//                                                                'closeButton' => [
+//
+//                                                                    'label' => 'Close',
+//
+//                                                                    'class' => 'btn btn-danger btn-sm pull-right',
+//                                                                    'id' => 'modal-button-close'
+//
+//                                                                ],
+//
+//                                                                'size' => 'modal-lg',
+////                                                                'options' => [
+//////                                                                    'id' => 'rateModal_' . $product->id
+////                                                                    'data-bs-backdrop' => 'true',
+////                                                                ],
+//                                                                'id' => 'rateModalContent',
+//
+//
+//                                                            ]);
+//                                                            echo "<div id='rateModalContent'></div>";
+//                                                            Modal::end();
+//
+//                                                            ?>
+<!--                                                        </li>-->
                                                     </ul>
                                                 </div>
                                             </a>

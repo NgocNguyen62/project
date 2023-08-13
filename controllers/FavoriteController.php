@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\base\Favorite;
 use app\models\Products;
 use app\models\search\FavoriteSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -121,7 +122,7 @@ class FavoriteController extends Controller
         $model = $this->findModel($id);
         $product_id = $model->product_id;
         $this->findModel($id)->delete();
-        return $this->redirect(['products/details', 'id'=>$product_id]);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     /**
