@@ -126,15 +126,17 @@ class ProductsController extends Controller
         $product = $this->findModel($id);
         $avatar = $product->avatar;
         $image = $product->image_360;
-//        $qrcode = Qrcode::findOne(['product_id'=>$product->id]);
-//        $qr = '';
-//        if($qrcode !== null){
-//            $qr=$qrcode->qr;
-//        }
+        $qrcode = Qrcode::findOne(['product_id'=>$product->id]);
+        $qr = '';
+        if($qrcode !== null){
+            $qr=$qrcode->qr;
+        }
 
         $model = new ProductForm();
         $model->setAttributes($product->attributes);
         $model->id = $product->id;
+        $folder = 'products/'. $model->id . '-' . $model->name;
+
 //        var_dump($model);
 //        die();
         if ($this->request->isPost && $model->load($this->request->post())) {
@@ -144,15 +146,19 @@ class ProductsController extends Controller
             $product->updated_by = \Yii::$app->user->identity->username;
 
             if ($model->save($product)) {
-                if(file_exists($avatar)){
-                    unlink($avatar);
+                $folder2 = 'products/'. $model->id . '-' . $model->name;
+                if (is_dir($folder)) {
+                    if($folder !== $folder2){
+                        FileHelper::removeDirectory($folder);
+                    } else{
+                        unlink($avatar);
+                        unlink($image);
+                        if(file_exists($qr)){
+                            unlink($qr);
+                        }
+                    }
+
                 }
-                if(file_exists($image)){
-                    unlink($image);
-                }
-//                if(file_exists($qr)){
-//                    unlink($qr);
-//                }
 
                 return $this->redirect(['view', 'id' => $model->id]);
             }

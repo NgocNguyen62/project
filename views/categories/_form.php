@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('Tên loại')?>
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true])->label('Mô tả') ?>
+    <?= $form->field($model, 'description')->textarea(['style'=>'height: 200px'])->label('Mô tả') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

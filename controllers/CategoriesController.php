@@ -71,14 +71,16 @@ class CategoriesController extends Controller
      */
     public function actionCreate()
     {
-        $form = new CategoryForm();
-        $model = new Categories();
+        $model = new CategoryForm();
+        $cate = new Categories();
 
         if ($this->request->isPost) {
-            $form->load($this->request->post());
+            $model->load($this->request->post());
             $model->avatar = UploadedFile::getInstance($model, 'avatar');
-            if($model->save($model)){
-                return $this->redirect(['view', 'id' => $model->id]);
+//            var_dump($this->request->post());
+//            die();
+            if($model->save($cate)){
+                return $this->redirect(['categories/view', 'id' => $model->id]);
             }
         }
 

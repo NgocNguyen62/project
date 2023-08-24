@@ -16,7 +16,7 @@ class m230723_164058_favorites extends Migration
             'id' => $this->primaryKey(),
             'user_id' => $this->integer()->notNull(),
             'product_id' => $this->integer()->notNull(),
-        ]);
+        ], 'ENGINE=InnoDB');
 
         $this->addForeignKey('fk_favorite_user', 'favorite', 'user_id', 'user', 'id', 'CASCADE', 'CASCADE');
     }

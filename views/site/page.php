@@ -32,12 +32,14 @@
 <!--                        <h4>Tổng số sản phẩm: --><?php //= Yii::$app->user->identity->countProducts() ?><!--</h4>-->
 <!--                    </div>-->
                         <div class="col-md-7">
+                            <div class="card ">
                             <div class="card-header ">
                                 <h4>Lượt xem theo phân loại</h4>
 
                             </div>
                             <div class="card-body">
                                 <?= $this->render('chart'); ?>
+                            </div>
                             </div>
                         </div>
                     <div class="col-md-5">

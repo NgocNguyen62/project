@@ -24,6 +24,8 @@ class CategoryForm extends Model
 
     public function save($model)
     {
+//        var_dump($this->validate($this->avatar));
+//        die();
         if ($this->validate()) {
             $model->name = $this->name;
             $model->description = $this->description;
@@ -31,6 +33,7 @@ class CategoryForm extends Model
             $path_avatar = 'avatar/' . $this->avatar->baseName . time() . '.' . $this->avatar->extension;
             $model->avatar = $path_avatar;
 //            var_dump($model);
+//            die();
             $rs = $model->save();
             $this->id = $model->id;
             if ($rs) {

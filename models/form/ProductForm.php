@@ -72,6 +72,10 @@ class ProductForm extends Model {
                     $qr->product_id = $model->id;
                     $qr->qr = $model->createQr();
                     $qr->save();
+                } else{
+                    $qr = Qrcode::findOne(['product_id'=>$this->id]);
+                    $qr->qr = $model->createQr();
+                    $qr->save();
                 }
                 return true;
             }

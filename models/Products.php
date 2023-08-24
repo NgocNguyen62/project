@@ -77,7 +77,7 @@ class Products extends \app\models\base\Products
         if (!file_exists($folder)) {
             mkdir($folder, 0777, true);
         }
-        $path = $folder . '/' . 'qr-' .$this->name . '.png';
+        $path = $folder . '/' . 'qr-' .$this->name. time() . '.png';
         $qr->writeFile($path);
 //        $result ->saveToFile($path);
         return $path;

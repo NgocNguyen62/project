@@ -5,84 +5,101 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c008b031-cb21-4fcf-9956-87314a8359bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/web/image/galaxy_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/template/assets/images/galaxy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/template/assets/images/banner.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/FavoriteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/FavoriteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/base/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/base/Categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4917ae82b0.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4917b10b76.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4917c802d3.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4917c9c0cd.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4917f205ec.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4917f525c0.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4918c2deaa.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4918c60c58.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d491d1101b6.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d491d19cad2.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d491f1d0b3e.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d491f279cc6.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d491fdd3b5a.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d491fe43b04.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4922d5a7b7.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4922de2b92.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4925b9eef4.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4925c24e80.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492722da6e.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4927298bba.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49283e00d6.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49283e4bae.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49284047d1.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49286bd6ab.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49286f3482.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49292e6d4c.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4929333f43.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49294588fa.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49294938f3.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49295d7f0b.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492961683d.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4929848a59.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49298678f4.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d49299749e6.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492998da44.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4929ac9d32.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4929ae606a.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4929d386f1.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4929d5c0f8.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4929ef3f86.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d4929f3439a.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492a56d1ad.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492a57f553.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492ada8c7b.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492ae3135e.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492bd3f1c4.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492bdacd9b.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492bde6dc4.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492c087385.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492c0aecdb.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492c7ef76c.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492c82c776.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492c978e8f.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492c99323b.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492cce2f41.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/debug/64d492cd064de.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/m230723_164058_favorites.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/m230723_164058_favorites.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/form/CategoryForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/CategoryForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/form/ProductForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/form/ProductForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8d564a9f93.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8d56530e25.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8d568773fd.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8d5687bd44.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8d5689104b.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8ddff75993.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8ddffee311.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de0038477.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de04e33ef.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de0513dd2.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de05331e4.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de0559f31.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de057a35e.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de0596519.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de05b36a3.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de0618957.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de08e1f48.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de08ea017.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de091ffe0.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de0e84c8a.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de0f056db.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de0f5398c.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de27bc240.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de27e2c81.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de2af29ac.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de2b435af.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de2dd7bba.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de2e292c8.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de34a76dd.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de34cc3ad.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de34e3cd7.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de366bcc7.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de36c6684.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de89139c3.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8de898456f.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8dea0eafd2.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8dec38395d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8decb346a1.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8decb6aba9.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df02cbb40.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df03207ef.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df059aea5.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df05de005.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df0611c19.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df21127f2.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df211a7b2.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df216c6b2.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8df218bac9.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e1e7b9fb7.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e1e80531d.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e213981f4.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e213f35a7.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e2ecb5f5b.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e37e34f53.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e37e8b441.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e397dff18.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e3984175b.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/debug/64d8e3b11f4fb.data" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/runtime/debug/index.data" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/debug/index.data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runtime/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/logs/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main-login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categories/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categories/_form.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/products/details.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/details.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/category-details.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/category-details.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/site/home2.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/home2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/site/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/site/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/favorite.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/favorite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/avatar/Untitled1688458747.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/image_360/4213791.fig.0021688458747.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/1-Mar/avatar-mar1690182096.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/1-Mar/image360-mar1690182096.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/1-Mar/qr-Mar..png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/18-Moon/avatar-moon1690536210.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/18-Moon/image360-moon1690536210.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/18-Moon/qr-Moon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/20-test/avatar-galaxy1691672941.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/20-test/image360-eso0932a (1)1691672941.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/20-test/qr-test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/4-Earth/avatar-download1690194323.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/4-Earth/image360-3d-rendering-planet-earth1690194323.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/4-Earth/qr-Earth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/5-Sun/avatar-sun1690182177.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/5-Sun/image360-sun1690182177.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/5-Sun/qr-Sun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/6-sdfsdf/avatar-download1691565807.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/6-sdfsdf/image360-eso0932a (1)1691565807.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/6-sdfsdf/qr-sdfsdf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/8-test1/avatar-16789547451691737347.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/8-test1/image360-screenshot (1)1691737347.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/products/8-test1/qr-test1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/template/assets/css/templatemo-cyborg-gaming.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/template/assets/css/templatemo-cyborg-gaming.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -362,6 +379,12 @@
       <workItem from="1691734688896" duration="1180000" />
       <workItem from="1691748166961" duration="1548000" />
       <workItem from="1691931542144" duration="3473000" />
+      <workItem from="1691939259576" duration="1132000" />
+      <workItem from="1692087537185" duration="1719000" />
+      <workItem from="1692110642126" duration="7216000" />
+      <workItem from="1692340435863" duration="4430000" />
+      <workItem from="1692603069231" duration="4226000" />
+      <workItem from="1692672381297" duration="1193000" />
     </task>
     <servers />
   </component>

@@ -1,9 +1,11 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
+
 ?>
 <div class="card">
     <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg"></p>
 
         <?php $form = \yii\bootstrap4\ActiveForm::begin(['id' => 'login-form']) ?>
 
@@ -14,7 +16,7 @@ use yii\helpers\Html;
             'wrapperOptions' => ['class' => 'input-group mb-3']
         ])
             ->label(false)
-            ->textInput(['placeholder' => $model->getAttributeLabel('username')]) ?>
+            ->textInput(['placeholder' => 'Tên đăng nhập']) ?>
 
         <?= $form->field($model, 'password', [
             'options' => ['class' => 'form-group has-feedback'],
@@ -22,8 +24,7 @@ use yii\helpers\Html;
             'template' => '{beginWrapper}{input}{error}{endWrapper}',
             'wrapperOptions' => ['class' => 'input-group mb-3']
         ])
-            ->label(false)
-            ->passwordInput(['placeholder' => $model->getAttributeLabel('password')]) ?>
+            ->passwordInput(['placeholder' => 'Mật khẩu']) ?>
 
         <div class="row">
             <div class="col-8">
@@ -33,10 +34,11 @@ use yii\helpers\Html;
                         'class' => ''
                     ],
                     'uncheck' => null
-                ]) ?>
+                ])->label('Ghi nhớ') ?>
+                <a href="<?= Url::to(['site/home']) ?>" class="active">Trang chủ</a>
             </div>
             <div class="col-4">
-                <?= Html::submitButton('Sign In', ['class' => 'btn btn-primary btn-block']) ?>
+                <?= Html::submitButton('Xác nhận', ['class' => 'btn btn-primary btn-block']) ?>
             </div>
         </div>
 
